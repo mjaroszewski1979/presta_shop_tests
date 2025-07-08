@@ -1,4 +1,4 @@
-![caption](https://github.com/mjaroszewski1979/qi_internship_project/blob/main/qi_internship_img.jpg)
+![caption](https://github.com/mjaroszewski1979/presta_shop_tests/blob/main/presta_shop_tests_img.jpg)
 
 # E-Commerce Web App Test Automation – Presta Shop
 
