@@ -7,6 +7,12 @@ class BasePage:
     def visit(self, url: str):
         self.page.goto(url)
 
+    def get_title(self) -> str:
+        return self.page.title()
+
+    def get_url(self) -> str:
+        return self.page.url
+
     def click(self, selector: str):
         self.page.click(selector)
 
@@ -25,3 +31,11 @@ class BasePage:
     def assert_text(self, selector: str, expected_text: str):
         actual = self.get_text(selector)
         assert actual == expected_text, f"Expected '{expected_text}', got '{actual}'"
+
+    def assert_title_is(self, expected_title: str):
+        actual_title = self.get_title()
+        assert actual_title == expected_title, f"Expected title '{expected_title}', but got '{actual_title}'"
+
+    def assert_url_is(self, expected_url: str):
+        actual_url = self.get_url()
+        assert actual_url == expected_url, f"Expected URL '{expected_url}', but got '{actual_url}'"
