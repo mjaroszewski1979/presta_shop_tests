@@ -7,6 +7,9 @@ class BasePage:
     def visit(self, url: str):
         self.page.goto(url)
 
+    def wait_for_visible(self, selector: str, timeout: int = 10000):
+        self.page.locator(selector).wait_for(state="visible", timeout=timeout)
+
     def get_title(self) -> str:
         return self.page.title()
 
@@ -29,6 +32,7 @@ class BasePage:
         self.page.wait_for_selector(selector)
 
     def assert_text(self, selector: str, expected_text: str):
+        self.wait_for_visible(selector)
         actual = self.get_text(selector)
         assert actual == expected_text, f"Expected '{expected_text}', got '{actual}'"
 
@@ -43,5 +47,5 @@ class BasePage:
     def is_visible_with_text(self, selector: str, expected_text: str) -> bool:
         if self.is_visible(selector):
             actual_text = self.get_text(selector)
-            return actual_text.strip() == expected_text.strip()
+            assert actual_text.strip() == expected_text.strip()
         return False
