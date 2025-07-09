@@ -1,5 +1,6 @@
 import pytest
 from playwright.sync_api import sync_playwright
+from pages.home_page import HomePage
 
 @pytest.fixture(scope="session")
 def playwright_context():
@@ -18,3 +19,9 @@ def page(browser):
     page = context.new_page()
     yield page
     context.close()
+
+@pytest.fixture
+def home_page(page):
+    home = HomePage(page)
+    home.go_to_homepage()
+    return home
