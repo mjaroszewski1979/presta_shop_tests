@@ -39,3 +39,9 @@ class BasePage:
     def assert_url_is(self, expected_url: str):
         actual_url = self.get_url()
         assert actual_url == expected_url, f"Expected URL '{expected_url}', but got '{actual_url}'"
+
+    def is_visible_with_text(self, selector: str, expected_text: str) -> bool:
+        if self.is_visible(selector):
+            actual_text = self.get_text(selector)
+            return actual_text.strip() == expected_text.strip()
+        return False
