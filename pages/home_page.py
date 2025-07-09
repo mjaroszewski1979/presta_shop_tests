@@ -5,6 +5,7 @@ class HomePage(BasePage):
     def __init__(self, page):
         super().__init__(page)
         self.contact_link = HomePageLocators.CONTACT_LINK
+        self.sign_in_span = HomePageLocators.SIGN_IN_SPAN
 
 
     def go_to_homepage(self):

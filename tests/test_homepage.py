@@ -8,3 +8,6 @@ def test_homepage_url(home_page):
 
 def test_contact_link_is_visible_with_text(home_page):
     home_page.is_visible_with_text(home_page.contact_link, 'Contact us')
+
+def test_sign_in_span_is_visible_with_text(home_page):
+    home_page.is_visible_with_text(home_page.sign_in_span, 'Sign in')
