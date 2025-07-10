@@ -8,6 +8,7 @@ class HomePage(BasePage):
         self.contact_link = self.frame.locator(HomePageLocators.CONTACT_LINK)
         self.sign_in_span = self.frame.locator(HomePageLocators.SIGN_IN_SPAN)
         self.cart_span = self.frame.locator(HomePageLocators.CART_SPAN)
+        self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
 
 
     def go_to_homepage(self):
