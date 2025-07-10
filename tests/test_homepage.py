@@ -18,6 +18,11 @@ def test_cart_span_is_visible_with_text(home_page):
     home_page.cart_span.wait_for(state="visible", timeout=10000)
     expect(home_page.cart_span).to_have_text("Cart")
 
-def test_homepage_displays_8_products(home_page):
+def test_homepage_displays_8_featured_products(home_page):
     home_page.featured_products.first.wait_for(state="visible", timeout=10000)
     expect(home_page.featured_products).to_have_count(8)
+
+def test_homepage_displays_2_sale_products(home_page):
+    home_page.sale_products.first.scroll_into_view_if_needed()
+    home_page.sale_products.first.wait_for(state="visible", timeout=10000)
+    expect(home_page.sale_products).to_have_count(2)
