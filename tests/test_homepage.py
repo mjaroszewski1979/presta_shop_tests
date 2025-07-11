@@ -26,3 +26,18 @@ def test_homepage_displays_2_sale_products(home_page):
     home_page.sale_products.first.scroll_into_view_if_needed()
     home_page.sale_products.first.wait_for(state="visible", timeout=10000)
     expect(home_page.sale_products).to_have_count(2)
+
+def test_carousel_initial_slide_text(home_page):
+    first_heading = home_page.carousel_headings.nth(0)
+    first_heading.wait_for(state="visible", timeout=5000)
+    expect(first_heading).to_have_text("Sample 1")
+
+def test_carousel_second_slide_text(home_page):
+    home_page.carousel_next_icon.click()
+    second_heading = home_page.carousel_headings.nth(1)
+    second_heading.wait_for(state="visible", timeout=5000)
+    expect(second_heading).to_have_text("Sample 2")
+
+
+
+

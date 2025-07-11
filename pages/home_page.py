@@ -10,6 +10,8 @@ class HomePage(BasePage):
         self.cart_span = self.frame.locator(HomePageLocators.CART_SPAN)
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
+        self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
+        self.carousel_next_icon = self.frame.locator(HomePageLocators.CAROUSEL_NEXT_ICON)
 
 
     def go_to_homepage(self):
