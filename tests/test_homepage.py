@@ -10,6 +10,12 @@ def test_contact_link_is_visible_with_text(home_page):
     home_page.contact_link.wait_for(state="visible", timeout=10000)
     expect(home_page.contact_link).to_have_text("Contact us")
 
+def test_contact_link_is_working(home_page, contact_page):
+    home_page.contact_link.wait_for(state="visible", timeout=10000)
+    home_page.contact_link.click()
+    contact_page.contact_form_heading.wait_for(state="visible", timeout=10000)
+    expect(contact_page.contact_form_heading).to_have_text("Contact us")
+
 def test_sign_in_span_is_visible_with_text(home_page):
     home_page.sign_in_span.wait_for(state="visible", timeout=10000)
     expect(home_page.sign_in_span).to_have_text("Sign in")
