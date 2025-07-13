@@ -8,6 +8,7 @@ class HomePage(BasePage):
         self.contact_link = self.frame.locator(HomePageLocators.CONTACT_LINK)
         self.sign_in_span = self.frame.locator(HomePageLocators.SIGN_IN_SPAN)
         self.cart_span = self.frame.locator(HomePageLocators.CART_SPAN)
+        self.my_store_img = self.frame.locator(HomePageLocators.MY_STORE_IMG)
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
         self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
@@ -18,4 +19,5 @@ class HomePage(BasePage):
         self.visit("https://demo.prestashop.com/#/en/front") 
         self.page.wait_for_load_state("networkidle")
         self.frame.locator(HomePageLocators.CONTACT_LINK).wait_for(state="visible")
+        self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
 
