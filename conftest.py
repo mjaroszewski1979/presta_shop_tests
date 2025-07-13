@@ -2,6 +2,7 @@ import pytest
 from playwright.sync_api import sync_playwright
 from pages.home_page import HomePage
 from pages.contact_page import ContactPage
+from pages.sign_page import SignPage
 
 @pytest.fixture(scope="session")
 def playwright_context():
@@ -31,3 +32,8 @@ def home_page(page):
 def contact_page(page):
     contact = ContactPage(page)
     return contact
+
+@pytest.fixture
+def sign_page(page):
+    sign = SignPage(page)
+    return sign

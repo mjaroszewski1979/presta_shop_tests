@@ -20,6 +20,12 @@ def test_sign_in_span_is_visible_with_text(home_page):
     home_page.sign_in_span.wait_for(state="visible", timeout=10000)
     expect(home_page.sign_in_span).to_have_text("Sign in")
 
+def test_sign_in_link_is_working(home_page, sign_page):
+    home_page.sign_in_span.wait_for(state="visible", timeout=10000)
+    home_page.sign_in_span.click()
+    sign_page.sign_in_button.wait_for(state="visible", timeout=10000)
+    expect(sign_page.sign_in_button).to_have_text("Sign in")
+
 def test_cart_span_is_visible_with_text(home_page):
     home_page.cart_span.wait_for(state="visible", timeout=10000)
     expect(home_page.cart_span).to_have_text("Cart")
