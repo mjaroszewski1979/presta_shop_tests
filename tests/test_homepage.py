@@ -38,6 +38,14 @@ def test_clothes_link_is_visible_with_text(home_page):
     home_page.clothes_link.wait_for(state="visible", timeout=10000)
     expect(home_page.clothes_link).to_contain_text("Clothes")
 
+def test_accessories_link_is_visible_with_text(home_page):
+    home_page.accessories_link.wait_for(state="visible", timeout=10000)
+    expect(home_page.accessories_link).to_contain_text("Accessories")
+
+def test_art_link_is_visible_with_text(home_page):
+    home_page.art_link.wait_for(state="visible", timeout=10000)
+    expect(home_page.art_link).to_contain_text("Art")
+
 def test_homepage_displays_8_featured_products(home_page):
     home_page.featured_products.first.wait_for(state="visible", timeout=10000)
     expect(home_page.featured_products).to_have_count(8)
