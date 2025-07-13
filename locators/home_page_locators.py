@@ -3,6 +3,7 @@ class HomePageLocators:
     SIGN_IN_SPAN = 'a[title="Log in to your customer account"] span.hidden-sm-down'
     CART_SPAN = 'div.header span.hidden-sm-down'
     MY_STORE_IMG = 'div#_desktop_logo img.img-fluid'
+    CLOTHES_LINK = 'li#category-3'
     FEATURED_PRODUCTS = 'section.featured-products div.products.row div.js-product.product'
     SALE_PRODUCTS = 'section.featured-products.clearfix.mt-3 div.products div.js-product.product'
     CAROUSEL_HEADINGS = 'ul.carousel-inner li.carousel-item h2.display-1.text-uppercase'

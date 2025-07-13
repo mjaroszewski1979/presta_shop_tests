@@ -34,6 +34,10 @@ def test_my_store_img_is_visible(home_page):
     home_page.my_store_img.wait_for(state="visible", timeout=10000)
     expect(home_page.my_store_img).to_be_visible()
 
+def test_clothes_link_is_visible_with_text(home_page):
+    home_page.clothes_link.wait_for(state="visible", timeout=10000)
+    expect(home_page.clothes_link).to_contain_text("Clothes")
+
 def test_homepage_displays_8_featured_products(home_page):
     home_page.featured_products.first.wait_for(state="visible", timeout=10000)
     expect(home_page.featured_products).to_have_count(8)

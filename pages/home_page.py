@@ -9,6 +9,7 @@ class HomePage(BasePage):
         self.sign_in_span = self.frame.locator(HomePageLocators.SIGN_IN_SPAN)
         self.cart_span = self.frame.locator(HomePageLocators.CART_SPAN)
         self.my_store_img = self.frame.locator(HomePageLocators.MY_STORE_IMG)
+        self.clothes_link = self.frame.locator(HomePageLocators.CLOTHES_LINK)
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
         self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
@@ -20,4 +21,5 @@ class HomePage(BasePage):
         self.page.wait_for_load_state("networkidle")
         self.frame.locator(HomePageLocators.CONTACT_LINK).wait_for(state="visible")
         self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
+        self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
 
