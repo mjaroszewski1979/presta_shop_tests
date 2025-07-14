@@ -3,6 +3,7 @@ from playwright.sync_api import sync_playwright
 from pages.home_page import HomePage
 from pages.contact_page import ContactPage
 from pages.sign_page import SignPage
+from pages.search_page import SearchPage
 
 @pytest.fixture(scope="session")
 def playwright_context():
@@ -37,3 +38,8 @@ def contact_page(page):
 def sign_page(page):
     sign = SignPage(page)
     return sign
+
+@pytest.fixture
+def search_page(page):
+    search = SearchPage(page)
+    return search

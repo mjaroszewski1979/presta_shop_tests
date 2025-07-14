@@ -90,6 +90,19 @@ def test_carousel_second_slide_text(home_page):
     second_heading.wait_for(state="visible", timeout=5000)
     expect(second_heading).to_have_text("Sample 2")
 
+def test_search_catalog_input(home_page, search_page):
+    home_page.search_catalog_input.wait_for(state="visible", timeout=5000)
+    home_page.search_catalog_input.fill('')
+    home_page.search_catalog_input.type('Hummingbird', delay=100)
+    home_page.search_catalog_input.click()
+    home_page.search_catalog_input.press("Enter")
+    search_page.total_products_para.wait_for(state="visible", timeout=5000)
+    expect(search_page.total_products_para).to_contain_text('There are 5 products.')
+
+
+
+
+
 
 
 

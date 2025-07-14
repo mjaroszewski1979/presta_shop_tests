@@ -14,3 +14,5 @@ class HomePageLocators:
     SALE_PRODUCTS = 'section.featured-products.clearfix.mt-3 div.products div.js-product.product'
     CAROUSEL_HEADINGS = 'ul.carousel-inner li.carousel-item h2.display-1.text-uppercase'
     CAROUSEL_NEXT_ICON = 'span.icon-next'
+    SEARCH_CATALOG_INPUT = 'input.ui-autocomplete-input'
+

@@ -20,6 +20,7 @@ class HomePage(BasePage):
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
         self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
         self.carousel_next_icon = self.frame.locator(HomePageLocators.CAROUSEL_NEXT_ICON)
+        self.search_catalog_input = self.frame.locator(HomePageLocators.SEARCH_CATALOG_INPUT)
 
 
     def go_to_homepage(self):
