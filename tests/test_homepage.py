@@ -54,6 +54,18 @@ def test_accessories_link_is_visible_with_text(home_page):
     home_page.accessories_link.wait_for(state="visible", timeout=10000)
     expect(home_page.accessories_link).to_contain_text("Accessories")
 
+def test_accessories_stationery_link_is_visible_with_text(home_page):
+    home_page.accessories_link.wait_for(state="visible", timeout=10000)
+    home_page.accessories_link.hover()
+    home_page.accessories_stationery_link.wait_for(state="visible", timeout=10000)
+    expect(home_page.accessories_stationery_link).to_contain_text("Stationery")
+
+def test_accessories_home_link_is_visible_with_text(home_page):
+    home_page.accessories_link.wait_for(state="visible", timeout=10000)
+    home_page.accessories_link.hover()
+    home_page.accessories_home_link.wait_for(state="visible", timeout=10000)
+    expect(home_page.accessories_home_link).to_contain_text("Home Accessories")
+
 def test_art_link_is_visible_with_text(home_page):
     home_page.art_link.wait_for(state="visible", timeout=10000)
     expect(home_page.art_link).to_contain_text("Art")

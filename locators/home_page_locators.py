@@ -7,6 +7,8 @@ class HomePageLocators:
     CLOTHES_MEN_LINK = 'li#category-4'
     CLOTHES_WOMEN_LINK = 'li#category-5'
     ACCESSORIES_LINK = 'li#category-6'
+    ACCESSORIES_STATIONERY_LINK = 'li#category-7'
+    ACCESSORIES_HOME_LINK = 'li#category-8'
     ART_LINK = 'li#category-9'
     FEATURED_PRODUCTS = 'section.featured-products div.products.row div.js-product.product'
     SALE_PRODUCTS = 'section.featured-products.clearfix.mt-3 div.products div.js-product.product'
