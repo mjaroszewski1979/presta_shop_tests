@@ -11,6 +11,7 @@ class HomePage(BasePage):
         self.my_store_img = self.frame.locator(HomePageLocators.MY_STORE_IMG)
         self.clothes_link = self.frame.locator(HomePageLocators.CLOTHES_LINK)
         self.clothes_men_link = self.frame.locator(HomePageLocators.CLOTHES_MEN_LINK)
+        self.clothes_women_link = self.frame.locator(HomePageLocators.CLOTHES_WOMEN_LINK)
         self.accessories_link = self.frame.locator(HomePageLocators.ACCESSORIES_LINK)
         self.art_link = self.frame.locator(HomePageLocators.ART_LINK)
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)

@@ -5,6 +5,7 @@ class HomePageLocators:
     MY_STORE_IMG = 'div#_desktop_logo img.img-fluid'
     CLOTHES_LINK = 'li#category-3'
     CLOTHES_MEN_LINK = 'li#category-4'
+    CLOTHES_WOMEN_LINK = 'li#category-5'
     ACCESSORIES_LINK = 'li#category-6'
     ART_LINK = 'li#category-9'
     FEATURED_PRODUCTS = 'section.featured-products div.products.row div.js-product.product'
