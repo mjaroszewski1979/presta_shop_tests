@@ -99,6 +99,14 @@ def test_search_catalog_input(home_page, search_page):
     search_page.total_products_para.wait_for(state="visible", timeout=5000)
     expect(search_page.total_products_para).to_contain_text('There are 5 products.')
 
+def test_language_select(home_page):
+    home_page.language_dropdown_button.wait_for(state="visible", timeout=5000)
+    home_page.language_dropdown_button.click()
+    home_page.language_option_spanish.wait_for(state="visible", timeout=5000)
+    home_page.language_option_spanish.click()
+    home_page.featured_products_h2.first.wait_for(state="visible", timeout=5000)
+    expect(home_page.featured_products_h2.first).to_contain_text('Productos Destacados')
+
 
 
 

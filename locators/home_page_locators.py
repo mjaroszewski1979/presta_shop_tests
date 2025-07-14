@@ -11,8 +11,11 @@ class HomePageLocators:
     ACCESSORIES_HOME_LINK = 'li#category-8'
     ART_LINK = 'li#category-9'
     FEATURED_PRODUCTS = 'section.featured-products div.products.row div.js-product.product'
+    FEATURED_PRODUCTS_H2 = 'section.featured-products h2'
     SALE_PRODUCTS = 'section.featured-products.clearfix.mt-3 div.products div.js-product.product'
     CAROUSEL_HEADINGS = 'ul.carousel-inner li.carousel-item h2.display-1.text-uppercase'
     CAROUSEL_NEXT_ICON = 'span.icon-next'
     SEARCH_CATALOG_INPUT = 'input.ui-autocomplete-input'
+    LANGUAGE_DROPDOWN_BUTTON = 'div.language-selector button.hidden-sm-down'
+    LANGUAGE_OPTION_SPANISH = 'a.dropdown-item[data-iso-code="es"]'
 

@@ -17,17 +17,20 @@ class HomePage(BasePage):
         self.accessories_home_link = self.frame.locator(HomePageLocators.ACCESSORIES_HOME_LINK)
         self.art_link = self.frame.locator(HomePageLocators.ART_LINK)
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
+        self.featured_products_h2 = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS_H2)
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
         self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
         self.carousel_next_icon = self.frame.locator(HomePageLocators.CAROUSEL_NEXT_ICON)
         self.search_catalog_input = self.frame.locator(HomePageLocators.SEARCH_CATALOG_INPUT)
+        self.language_dropdown_button = self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON)
+        self.language_option_spanish = self.frame.locator(HomePageLocators.LANGUAGE_OPTION_SPANISH)
 
 
     def go_to_homepage(self):
         self.visit("https://demo.prestashop.com/#/en/front") 
-        self.page.wait_for_load_state("networkidle")
         self.frame.locator(HomePageLocators.CONTACT_LINK).wait_for(state="visible")
         self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
         self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
+        self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON).wait_for(state="visible")
 
 
