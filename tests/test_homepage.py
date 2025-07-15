@@ -125,6 +125,12 @@ def test_device_width_tablet_v(home_page):
     home_page.body_index.wait_for(state="visible", timeout=5000)
     expect(home_page.body_index).to_have_css("width", "768px")
 
+def test_device_width_mobile(home_page):
+    home_page.device_li.nth(3).wait_for(state="visible", timeout=5000)
+    home_page.device_li.nth(3).click()
+    home_page.body_index.wait_for(state="visible", timeout=5000)
+    expect(home_page.body_index).to_have_css("width", "375px")
+
 
 
 
