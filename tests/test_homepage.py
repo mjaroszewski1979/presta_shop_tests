@@ -107,6 +107,14 @@ def test_language_select(home_page):
     home_page.featured_products_h2.first.wait_for(state="visible", timeout=5000)
     expect(home_page.featured_products_h2.first).to_contain_text('Productos Destacados')
 
+def test_device_width_desktop(home_page):
+    home_page.device_li.first.wait_for(state="visible", timeout=5000)
+    home_page.device_li.first.click()
+    home_page.body_index.wait_for(state="visible", timeout=5000)
+    expect(home_page.body_index).to_have_css("width", "1280px")
+
+
+
 
 
 

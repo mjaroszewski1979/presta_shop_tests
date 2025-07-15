@@ -18,4 +18,6 @@ class HomePageLocators:
     SEARCH_CATALOG_INPUT = 'input.ui-autocomplete-input'
     LANGUAGE_DROPDOWN_BUTTON = 'div.language-selector button.hidden-sm-down'
     LANGUAGE_OPTION_SPANISH = 'a.dropdown-item[data-iso-code="es"]'
+    DEVICE_LI = 'ul#devices li a'
+    BODY_INDEX = 'body#index'
 
