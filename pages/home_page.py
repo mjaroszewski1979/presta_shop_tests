@@ -29,6 +29,7 @@ class HomePage(BasePage):
         self.header_div = self.page.locator(HomePageLocators.HEADER_DIV)
         self.hide_header_span = self.page.locator(HomePageLocators.HIDE_HEADER_SPAN)
         self.start_now_button = self.page.locator(HomePageLocators.START_NOW_BUTTON)
+        self.explore_bo_button = self.page.locator(HomePageLocators.EXPLORE_BO_BUTTON)
 
 
     def go_to_homepage(self):

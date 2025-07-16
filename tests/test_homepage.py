@@ -150,6 +150,10 @@ def test_start_now_button_is_visible_with_text(home_page):
     home_page.start_now_button.wait_for(state="visible", timeout=10000)
     expect(home_page.start_now_button).to_contain_text("Start now")
 
+def test_explore_bo_button_is_visible_with_text(home_page):
+    home_page.explore_bo_button.wait_for(state="visible", timeout=10000)
+    expect(home_page.explore_bo_button).to_contain_text("Explore back office")
+
 def test_hide_header_span(home_page):
     expect(home_page.header_div).to_be_visible(timeout=5000)
     home_page.hide_header_span.click()
