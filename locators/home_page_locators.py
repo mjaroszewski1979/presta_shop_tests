@@ -20,4 +20,6 @@ class HomePageLocators:
     LANGUAGE_OPTION_SPANISH = 'a.dropdown-item[data-iso-code="es"]'
     DEVICE_LI = 'ul#devices li a'
     BODY_INDEX = 'body#index'
+    HEADER_DIV = 'div#header'
+    HIDE_HEADER_SPAN = 'span.hide-header'
 

@@ -26,6 +26,8 @@ class HomePage(BasePage):
         self.language_option_spanish = self.frame.locator(HomePageLocators.LANGUAGE_OPTION_SPANISH)
         self.device_li = self.page.locator(HomePageLocators.DEVICE_LI)
         self.body_index = self.frame.locator(HomePageLocators.BODY_INDEX)
+        self.header_div = self.page.locator(HomePageLocators.HEADER_DIV)
+        self.hide_header_span = self.page.locator(HomePageLocators.HIDE_HEADER_SPAN)
 
 
     def go_to_homepage(self):
@@ -34,6 +36,8 @@ class HomePage(BasePage):
         self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
         self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
         self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON).wait_for(state="visible")
+
+    
 
 
 
