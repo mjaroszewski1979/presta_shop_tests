@@ -22,4 +22,5 @@ class HomePageLocators:
     BODY_INDEX = 'body#index'
     HEADER_DIV = 'div#header'
     HIDE_HEADER_SPAN = 'span.hide-header'
+    START_NOW_BUTTON = 'div#buttons a.btn-download'
 

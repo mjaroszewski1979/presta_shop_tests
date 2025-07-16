@@ -146,6 +146,10 @@ def test_device_width_mobile(home_page):
     home_page.body_index.wait_for(state="visible", timeout=5000)
     expect(home_page.body_index).to_have_css("width", "375px")
 
+def test_start_now_button_is_visible_with_text(home_page):
+    home_page.start_now_button.wait_for(state="visible", timeout=10000)
+    expect(home_page.start_now_button).to_contain_text("Start now")
+
 def test_hide_header_span(home_page):
     expect(home_page.header_div).to_be_visible(timeout=5000)
     home_page.hide_header_span.click()
