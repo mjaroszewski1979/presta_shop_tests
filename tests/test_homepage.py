@@ -59,6 +59,11 @@ def test_accessories_link_is_visible_with_text(home_page):
     home_page.accessories_link.wait_for(state="visible", timeout=10000)
     expect(home_page.accessories_link).to_contain_text("Accessories")
 
+def test_accessories_link_is_working(home_page, accessories_page):
+    home_page.accessories_link.wait_for(state="visible", timeout=10000)
+    home_page.accessories_link.click()
+    expect(accessories_page.accessories_div_header).to_contain_text("Accessories")
+
 def test_accessories_stationery_link_is_visible_with_text(home_page):
     home_page.accessories_link.wait_for(state="visible", timeout=10000)
     home_page.accessories_link.hover()

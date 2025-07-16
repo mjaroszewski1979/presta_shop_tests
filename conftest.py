@@ -5,6 +5,7 @@ from pages.contact_page import ContactPage
 from pages.sign_page import SignPage
 from pages.search_page import SearchPage
 from pages.clothes_page import ClothesPage
+from pages.accessories_page import AccessoriesPage
 
 @pytest.fixture(scope="session")
 def playwright_context():
@@ -49,3 +50,8 @@ def search_page(page):
 def clothes_page(page):
     clothes = ClothesPage(page)
     return clothes
+
+@pytest.fixture
+def accessories_page(page):
+    accessories = AccessoriesPage(page)
+    return accessories
