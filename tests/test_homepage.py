@@ -185,6 +185,13 @@ def test_footer_our_company_section(home_page):
     actual_items = home_page.get_footer_our_company_submenu_texts()
     assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
 
+def test_footer_your_account_section(home_page):
+    expect(home_page.footer_section_title.nth(2)).to_be_visible()
+    expect(home_page.footer_section_title.nth(2)).to_have_text("Your account")
+    expected_items = ["Order tracking", "Sign in", "Create account", "My alerts"]
+    actual_items = home_page.get_footer_your_account_submenu_texts()
+    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+
 
 
 

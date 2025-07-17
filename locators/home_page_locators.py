@@ -32,4 +32,5 @@ class HomePageLocators:
     FOOTER_SECTION_TITLE = "div.footer-container p.hidden-sm-down"
     FOOTER_PRODUCTS_SUBMENU_ITEMS = "ul#footer_sub_menu_1 li"
     FOOTER_OUR_COMPANY_SUBMENU_ITEMS = "ul#footer_sub_menu_2 li"
+    FOOTER_YOUR_ACCOUNT_SUBMENU_ITEMS = "ul#footer_account_list li"
 
