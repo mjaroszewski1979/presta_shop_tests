@@ -31,6 +31,9 @@ class HomePage(BasePage):
         self.start_now_button = self.page.locator(HomePageLocators.START_NOW_BUTTON)
         self.explore_bo_button = self.page.locator(HomePageLocators.EXPLORE_BO_BUTTON)
         self.banner_image = self.frame.locator(HomePageLocators.BANNER_IMAGE)
+        self.subscribe_input = self.frame.locator(HomePageLocators.SUBSCRIBE_INPUT)
+        self.subscribe_button = self.frame.locator(HomePageLocators.SUBSCRIBE_BUTTON)
+        self.subscribe_info_para = self.frame.locator(HomePageLocators.SUBSCRIBE_INFO_PARA)
 
 
     def go_to_homepage(self):

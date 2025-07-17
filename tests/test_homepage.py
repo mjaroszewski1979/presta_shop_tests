@@ -163,6 +163,14 @@ def test_banner_image_is_visible(home_page):
     home_page.banner_image.wait_for(state="visible", timeout=10000)
     expect(home_page.banner_image).to_be_visible()
 
+def test_subscribe_with_valid_email_works(home_page):
+    home_page.subscribe_input.wait_for(state="visible", timeout=10000)
+    home_page.subscribe_input.fill('')
+    home_page.subscribe_input.type('mj@gmail.com', delay=100)
+    home_page.subscribe_button.click()
+    home_page.subscribe_info_para.wait_for(state="visible", timeout=10000)
+    expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
+
 
 
 

@@ -25,4 +25,7 @@ class HomePageLocators:
     START_NOW_BUTTON = 'div#buttons a.btn-download'
     EXPLORE_BO_BUTTON = 'div#buttons a.btn-explore-bo'
     BANNER_IMAGE = 'a.banner img.img-fluid'
+    SUBSCRIBE_INPUT = 'div.input-wrapper input'
+    SUBSCRIBE_BUTTON = 'input.btn.btn-primary.float-xs-right.hidden-xs-down'
+    SUBSCRIBE_INFO_PARA = 'p.alert.alert-success.block_newsletter_alert'
 
