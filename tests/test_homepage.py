@@ -159,6 +159,11 @@ def test_hide_header_span(home_page):
     home_page.hide_header_span.click()
     expect(home_page.header_div).not_to_be_visible()
 
+def test_banner_image_is_visible(home_page):
+    home_page.banner_image.wait_for(state="visible", timeout=10000)
+    expect(home_page.banner_image).to_be_visible()
+
+
 
 
 

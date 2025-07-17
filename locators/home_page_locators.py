@@ -24,4 +24,5 @@ class HomePageLocators:
     HIDE_HEADER_SPAN = 'span.hide-header'
     START_NOW_BUTTON = 'div#buttons a.btn-download'
     EXPLORE_BO_BUTTON = 'div#buttons a.btn-explore-bo'
+    BANNER_IMAGE = 'a.banner img.img-fluid'
 
