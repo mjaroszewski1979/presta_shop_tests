@@ -33,4 +33,5 @@ class HomePageLocators:
     FOOTER_PRODUCTS_SUBMENU_ITEMS = "ul#footer_sub_menu_1 li"
     FOOTER_OUR_COMPANY_SUBMENU_ITEMS = "ul#footer_sub_menu_2 li"
     FOOTER_YOUR_ACCOUNT_SUBMENU_ITEMS = "ul#footer_account_list li"
+    FOOTER_STORE_INFO_SUBMENU_ITEMS = "div#contact-infos"
 

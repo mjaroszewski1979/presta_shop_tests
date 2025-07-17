@@ -192,6 +192,13 @@ def test_footer_your_account_section(home_page):
     actual_items = home_page.get_footer_your_account_submenu_texts()
     assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
 
+def test_footer_store_info_section(home_page):
+    expect(home_page.footer_section_title.nth(3)).to_be_visible()
+    expect(home_page.footer_section_title.nth(3)).to_have_text("Store information")
+    expected_items = "PrestaShop\nFrance\nEmail us: demo@prestashop.com"
+    actual_items = home_page.get_footer_store_info_submenu_texts()
+    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+
 
 
 

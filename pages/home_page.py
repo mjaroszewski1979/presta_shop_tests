@@ -39,6 +39,7 @@ class HomePage(BasePage):
         self.footer_products_submenu_items = self.frame.locator(HomePageLocators.FOOTER_PRODUCTS_SUBMENU_ITEMS)
         self.footer_our_company_submenu_items = self.frame.locator(HomePageLocators.FOOTER_OUR_COMPANY_SUBMENU_ITEMS)
         self.footer_your_account_submenu_items = self.frame.locator(HomePageLocators.FOOTER_YOUR_ACCOUNT_SUBMENU_ITEMS)
+        self.footer_store_info_submenu_items = self.frame.locator(HomePageLocators.FOOTER_STORE_INFO_SUBMENU_ITEMS)
 
 
     def go_to_homepage(self):
@@ -56,6 +57,9 @@ class HomePage(BasePage):
     
     def get_footer_your_account_submenu_texts(self):
         return self.footer_your_account_submenu_items.all_inner_texts()
+    
+    def get_footer_store_info_submenu_texts(self):
+        return self.footer_store_info_submenu_items.inner_text()
 
 
     
