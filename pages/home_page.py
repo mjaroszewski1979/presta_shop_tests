@@ -34,6 +34,9 @@ class HomePage(BasePage):
         self.subscribe_input = self.frame.locator(HomePageLocators.SUBSCRIBE_INPUT)
         self.subscribe_button = self.frame.locator(HomePageLocators.SUBSCRIBE_BUTTON)
         self.subscribe_info_para = self.frame.locator(HomePageLocators.SUBSCRIBE_INFO_PARA)
+        self.footer_info_para = self.frame.locator(HomePageLocators.FOOTER_INFO_PARA)
+        self.footer_section_title = self.frame.locator(HomePageLocators.FOOTER_SECTION_TITLE)
+        self.footer_products_submenu_items = self.frame.locator(HomePageLocators.FOOTER_PRODUCTS_SUBMENU_ITEMS)
 
 
     def go_to_homepage(self):
@@ -42,6 +45,12 @@ class HomePage(BasePage):
         self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
         self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
         self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON).wait_for(state="visible")
+
+    def get_footer_products_submenu_texts(self):
+        return self.footer_products_submenu_items.all_inner_texts()
+
+
+    
 
     
 

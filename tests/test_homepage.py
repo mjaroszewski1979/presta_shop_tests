@@ -171,6 +171,13 @@ def test_subscribe_with_valid_email_works(home_page):
     home_page.subscribe_info_para.wait_for(state="visible", timeout=10000)
     expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
 
+def test_footer_products_section(home_page):
+    expect(home_page.footer_section_title.first).to_be_visible()
+    expect(home_page.footer_section_title.first).to_have_text("Products")
+    expected_items = ["Prices drop", "New products", "Best sellers"]
+    actual_items = home_page.get_footer_products_submenu_texts()
+    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+
 
 
 

@@ -28,4 +28,7 @@ class HomePageLocators:
     SUBSCRIBE_INPUT = 'div.input-wrapper input'
     SUBSCRIBE_BUTTON = 'input.btn.btn-primary.float-xs-right.hidden-xs-down'
     SUBSCRIBE_INFO_PARA = 'p.alert.alert-success.block_newsletter_alert'
+    FOOTER_INFO_PARA = 'div.footer-container p.hidden-sm-down'
+    FOOTER_SECTION_TITLE = "div.footer-container p.hidden-sm-down"
+    FOOTER_PRODUCTS_SUBMENU_ITEMS = "ul#footer_sub_menu_1 li"
 
