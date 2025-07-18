@@ -1,4 +1,5 @@
 from playwright.sync_api import expect
+from data.home_page_data import FOOTER_SECTIONS
 
 def test_homepage_title(home_page):
     home_page.assert_title_is("PrestaShop Live Demo")
@@ -173,48 +174,59 @@ def test_subscribe_with_valid_email_works(home_page):
 
 
 def assert_footer_section(home_page, section_index, expected_title, expected_items, submenu_locator):
-    expect(home_page.footer_section_title.nth(section_index)).to_be_visible()
-    expect(home_page.footer_section_title.nth(section_index)).to_have_text(expected_title)
-    actual_items = home_page.get_footer_submenu_texts(submenu_locator)
-    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+    section_title = home_page.footer_section_title.nth(section_index)
+    expect(section_title).to_be_visible()
+    expect(section_title).to_have_text(expected_title)
+    if isinstance(expected_items, list):
+        actual_items = submenu_locator.all_inner_texts()
+        assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+    else:
+        actual_item = submenu_locator.inner_text()
+        assert actual_item == expected_items, f"Expected {expected_items}, but got {actual_item}"
+
 
 def test_footer_products_section(home_page):
+    section = FOOTER_SECTIONS["products"]
     assert_footer_section(
         home_page,
-        section_index=0,
-        expected_title="Products",
-        expected_items=["Prices drop", "New products", "Best sellers"],
+        section_index=section["index"],
+        expected_title=section["title"],
+        expected_items=section["items"],
         submenu_locator=home_page.footer_products_submenu_items
     )
 
+
 def test_footer_our_company_section(home_page):
+    section = FOOTER_SECTIONS["our_company"]
     assert_footer_section(
         home_page,
-        section_index=1,
-        expected_title="Our company",
-        expected_items=[
-            "Delivery", "Legal Notice", "Terms and conditions of use", "About us",
-            "Secure payment", "Contact us", "Sitemap", "Stores"
-        ],
+        section_index=section["index"],
+        expected_title=section["title"],
+        expected_items=section["items"],
         submenu_locator=home_page.footer_our_company_submenu_items
     )
 
+
 def test_footer_your_account_section(home_page):
+    section = FOOTER_SECTIONS["your_account"]
     assert_footer_section(
         home_page,
-        section_index=2,
-        expected_title="Your account",
-        expected_items=["Order tracking", "Sign in", "Create account", "My alerts"],
+        section_index=section["index"],
+        expected_title=section["title"],
+        expected_items=section["items"],
         submenu_locator=home_page.footer_your_account_submenu_items
     )
 
-def test_footer_store_info_section(home_page):
-    expect(home_page.footer_section_title.nth(3)).to_be_visible()
-    expect(home_page.footer_section_title.nth(3)).to_have_text("Store information")
 
-    expected_text = "PrestaShop\nFrance\nEmail us: demo@prestashop.com"
-    actual_text = home_page.get_footer_store_info_text()
-    assert actual_text == expected_text, f"Expected {expected_text}, but got {actual_text}"
+def test_footer_store_info_section(home_page):
+    section = FOOTER_SECTIONS["store_info"]
+    assert_footer_section(
+        home_page,
+        section_index=section["index"],
+        expected_title=section["title"],
+        expected_items=section["items"],
+        submenu_locator=home_page.footer_store_info_submenu_items
+    )
 
 
 
