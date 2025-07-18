@@ -49,16 +49,10 @@ class HomePage(BasePage):
         self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
         self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON).wait_for(state="visible")
 
-    def get_footer_products_submenu_texts(self):
-        return self.footer_products_submenu_items.all_inner_texts()
-    
-    def get_footer_our_company_submenu_texts(self):
-        return self.footer_our_company_submenu_items.all_inner_texts()
-    
-    def get_footer_your_account_submenu_texts(self):
-        return self.footer_your_account_submenu_items.all_inner_texts()
-    
-    def get_footer_store_info_submenu_texts(self):
+    def get_footer_submenu_texts(self, submenu_locator):
+        return submenu_locator.all_inner_texts()
+
+    def get_footer_store_info_text(self):
         return self.footer_store_info_submenu_items.inner_text()
 
 

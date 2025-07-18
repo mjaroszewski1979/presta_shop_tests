@@ -171,33 +171,52 @@ def test_subscribe_with_valid_email_works(home_page):
     home_page.subscribe_info_para.wait_for(state="visible", timeout=10000)
     expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
 
-def test_footer_products_section(home_page):
-    expect(home_page.footer_section_title.first).to_be_visible()
-    expect(home_page.footer_section_title.first).to_have_text("Products")
-    expected_items = ["Prices drop", "New products", "Best sellers"]
-    actual_items = home_page.get_footer_products_submenu_texts()
+
+def assert_footer_section(home_page, section_index, expected_title, expected_items, submenu_locator):
+    expect(home_page.footer_section_title.nth(section_index)).to_be_visible()
+    expect(home_page.footer_section_title.nth(section_index)).to_have_text(expected_title)
+    actual_items = home_page.get_footer_submenu_texts(submenu_locator)
     assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+
+def test_footer_products_section(home_page):
+    assert_footer_section(
+        home_page,
+        section_index=0,
+        expected_title="Products",
+        expected_items=["Prices drop", "New products", "Best sellers"],
+        submenu_locator=home_page.footer_products_submenu_items
+    )
 
 def test_footer_our_company_section(home_page):
-    expect(home_page.footer_section_title.nth(1)).to_be_visible()
-    expect(home_page.footer_section_title.nth(1)).to_have_text("Our company")
-    expected_items = ["Delivery", "Legal Notice", "Terms and conditions of use", "About us", "Secure payment", "Contact us", "Sitemap", "Stores"]
-    actual_items = home_page.get_footer_our_company_submenu_texts()
-    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+    assert_footer_section(
+        home_page,
+        section_index=1,
+        expected_title="Our company",
+        expected_items=[
+            "Delivery", "Legal Notice", "Terms and conditions of use", "About us",
+            "Secure payment", "Contact us", "Sitemap", "Stores"
+        ],
+        submenu_locator=home_page.footer_our_company_submenu_items
+    )
 
 def test_footer_your_account_section(home_page):
-    expect(home_page.footer_section_title.nth(2)).to_be_visible()
-    expect(home_page.footer_section_title.nth(2)).to_have_text("Your account")
-    expected_items = ["Order tracking", "Sign in", "Create account", "My alerts"]
-    actual_items = home_page.get_footer_your_account_submenu_texts()
-    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+    assert_footer_section(
+        home_page,
+        section_index=2,
+        expected_title="Your account",
+        expected_items=["Order tracking", "Sign in", "Create account", "My alerts"],
+        submenu_locator=home_page.footer_your_account_submenu_items
+    )
 
 def test_footer_store_info_section(home_page):
     expect(home_page.footer_section_title.nth(3)).to_be_visible()
     expect(home_page.footer_section_title.nth(3)).to_have_text("Store information")
-    expected_items = "PrestaShop\nFrance\nEmail us: demo@prestashop.com"
-    actual_items = home_page.get_footer_store_info_submenu_texts()
-    assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+
+    expected_text = "PrestaShop\nFrance\nEmail us: demo@prestashop.com"
+    actual_text = home_page.get_footer_store_info_text()
+    assert actual_text == expected_text, f"Expected {expected_text}, but got {actual_text}"
+
+
 
 
 
