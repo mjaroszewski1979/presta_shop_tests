@@ -2,6 +2,14 @@ from pages.base_page import BasePage
 from locators.contact_page_locators import ContactPageLocators
 
 class ContactPage(BasePage):
+    """
+    Page Object Model for the Contact page.
+
+    Encapsulates interactions and locators specific to the Contact page,
+    which is loaded within an iframe identified by '#framelive'.
+    Inherits core functionality from BasePage to enable reuse of common actions and assertions.
+    """
+    
     def __init__(self, page):
         super().__init__(page)
         self.frame = page.frame_locator("#framelive")
