@@ -14,3 +14,6 @@ class SignPage(BasePage):
         super().__init__(page)
         self.frame = page.frame_locator("#framelive")
         self.sign_in_button = self.frame.locator(SignPageLocators.SIGN_IN_BUTTON)
+        self.email_input = self.frame.locator(SignPageLocators.EMAIL_INPUT)
+        self.password_input = self.frame.locator(SignPageLocators.PASSWORD_INPUT)
+        self.auth_alert_li = self.frame.locator(SignPageLocators.AUTH_ALERT_LI)
