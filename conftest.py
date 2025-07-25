@@ -7,6 +7,7 @@ from pages.search_page import SearchPage
 from pages.clothes_page import ClothesPage
 from pages.accessories_page import AccessoriesPage
 from pages.art_page import ArtPage
+from pages.create_account_page import CreateAccountPage
 
 # ----------- Playwright Fixtures -----------
 
@@ -112,3 +113,13 @@ def art_page(page):
     """
     art = ArtPage(page)
     return art
+
+@pytest.fixture
+def create_account_page(page):
+    """
+    Initializes the ArtPage object for tests involving the art category.
+    Returns:
+        ArtPage: An instance of the ArtPage POM.
+    """
+    create = CreateAccountPage(page)
+    return create

@@ -19,3 +19,4 @@ class SignPage(BasePage):
         self.forgot_password_link = self.frame.locator(SignPageLocators.FORGOT_PASSWORD_LINK)
         self.send_reset_link_button = self.frame.locator(SignPageLocators.SEND_RESET_LINK_BUTTON)
         self.reset_password_success_para = self.frame.locator(SignPageLocators.RESET_PASSWORD_SUCCESS_PARA)
+        self.create_account_link = self.frame.locator(SignPageLocators.CREATE_ACCOUNT_LINK)

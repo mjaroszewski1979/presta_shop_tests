@@ -9,3 +9,4 @@ class SignPageLocators:
     FORGOT_PASSWORD_LINK = 'div.forgot-password a'
     SEND_RESET_LINK_BUTTON = 'button#send-reset-link'
     RESET_PASSWORD_SUCCESS_PARA = 'div#content p'
+    CREATE_ACCOUNT_LINK = 'div.no-account a'
