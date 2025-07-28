@@ -52,8 +52,4 @@ class BasePage:
         actual_url = self.get_url()
         assert actual_url == expected_url, f"Expected URL '{expected_url}', but got '{actual_url}'" # Assert URL matches expected
 
-    def is_visible_with_text(self, selector: str, expected_text: str) -> bool:
-        if self.is_visible(selector):
-            actual_text = self.get_text(selector)
-            assert actual_text.strip() == expected_text.strip() # Assert visible element contains the expected text
-        return False
+    
