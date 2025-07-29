@@ -1,12 +1,16 @@
-# Import Playwright assertions
+# Import Playwright's 'expect' for advanced assertions and waiting conditions.
 from playwright.sync_api import expect
+
+# Import custom utility function to assert visibility and text of multiple elements.
 from utils.assertions import assert_elements_visible_with_texts
+
+# Import test data provider for create account form labels.
 from data.create_account_data import get_create_account_label_data
 
 
 def test_create_account_form_is_visible_with_text(home_page, sign_page, create_account_page):
     """
-    Verify the visibility and label of the 'Create Account' form.
+    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
     """
     home_page.sign_in_span.wait_for(state="visible", timeout=5000)
     home_page.sign_in_span.click()
