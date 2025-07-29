@@ -1,10 +1,17 @@
-# Import Playwright assertions
+# Import Playwright's 'expect' for handling assertions and state validations.
 from playwright.sync_api import expect
+
+# Import a custom assertion helper to validate element visibility and its text.
 from utils.assertions import assert_element_visible_with_text
 
+# Import utility to generate a randomized email address for password reset testing.
 from utils.home_page_utils import generate_unique_email
 
 def test_sign_in_with_incorrect_credentials(home_page, sign_page):
+    """
+    Verifies that attempting to sign in with invalid credentials
+    triggers the appropriate authentication error message.
+    """
     home_page.sign_in_span.wait_for(state="visible", timeout=5000)
     home_page.sign_in_span.click()
     sign_page.email_input.wait_for(state="visible", timeout=5000)
@@ -17,6 +24,10 @@ def test_sign_in_with_incorrect_credentials(home_page, sign_page):
 
 
 def test_reset_password_success(home_page, sign_page):
+    """
+    Validates that submitting a valid email address on the 'Forgot your password' form
+    displays a success message indicating that a reset link has been sent.
+    """
     email = generate_unique_email()
     home_page.sign_in_span.wait_for(state="visible", timeout=5000)
     home_page.sign_in_span.click()
