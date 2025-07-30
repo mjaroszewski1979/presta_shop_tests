@@ -21,6 +21,7 @@ class HomePage(BasePage):
         # Top navigation and header elements
         self.contact_link = self.frame.locator(HomePageLocators.CONTACT_LINK)
         self.sign_in_span = self.frame.locator(HomePageLocators.SIGN_IN_SPAN)
+        self.sign_out_link = self.frame.locator(HomePageLocators.SIGN_OUT_LINK)
         self.cart_span = self.frame.locator(HomePageLocators.CART_SPAN)
         self.my_store_img = self.frame.locator(HomePageLocators.MY_STORE_IMG)
 

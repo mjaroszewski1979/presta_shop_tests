@@ -7,6 +7,7 @@ class HomePageLocators:
     # Header and top navigation
     CONTACT_LINK = '#contact-link a'
     SIGN_IN_SPAN = 'a[title="Log in to your customer account"] span.hidden-sm-down'
+    SIGN_OUT_LINK = 'div.user-info a.logout'
     CART_SPAN = 'div.header span.hidden-sm-down'
     MY_STORE_IMG = 'div#_desktop_logo img.img-fluid'
 
