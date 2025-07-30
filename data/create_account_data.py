@@ -17,4 +17,8 @@ def get_create_account_label_data(create_account_page):
         (create_account_page.form_labels.nth(3), "Email"),
         (create_account_page.form_labels.nth(4), "Password"),
         (create_account_page.form_labels.nth(5), "Birthdate"),
+        (create_account_page.custom_checkbox_labels.nth(0), "Receive offers from our partners"),
+        (create_account_page.custom_checkbox_labels.nth(1), "I agree to the terms and conditions and the privacy policy"),
+        (create_account_page.custom_checkbox_labels.nth(2), "Sign up for our newsletter"),
+        (create_account_page.custom_checkbox_labels.nth(3), "Customer data privacy"),
     ]

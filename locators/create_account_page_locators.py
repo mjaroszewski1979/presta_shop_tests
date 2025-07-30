@@ -4,3 +4,4 @@ class CreateAccountPageLocators:
     Used in the SignPage Page Object.
     """
     FORM_LABELS = 'label.form-control-label'
+    CUSTOM_CHECKBOX_LABELS = 'span.custom-checkbox label'

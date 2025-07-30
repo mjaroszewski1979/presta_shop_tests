@@ -14,3 +14,4 @@ class CreateAccountPage(BasePage):
         super().__init__(page)
         self.frame = page.frame_locator("#framelive")
         self.form_labels = self.frame.locator(CreateAccountPageLocators.FORM_LABELS)
+        self.custom_checkbox_labels = self.frame.locator(CreateAccountPageLocators.CUSTOM_CHECKBOX_LABELS)
