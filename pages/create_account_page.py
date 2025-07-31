@@ -1,5 +1,11 @@
 from pages.base_page import BasePage
 from locators.create_account_page_locators import CreateAccountPageLocators
+from utils.home_page_utils import (
+    generate_unique_email,
+    generate_first_name,
+    generate_last_name,
+    generate_password,
+)
 
 class CreateAccountPage(BasePage):
     """
@@ -23,3 +29,18 @@ class CreateAccountPage(BasePage):
         self.terms_and_conditions_checkbox = self.frame.locator(CreateAccountPageLocators.TERMS_AND_CONDITIONS_CHECKBOX)
         self.customer_privacy_checkbox = self.frame.locator(CreateAccountPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
         self.save_form_button = self.frame.locator(CreateAccountPageLocators.SAVE_FORM_BUTTON)
+
+    def submit_create_account_form_with_valid_data(self, user_data):
+        self.gender_male_radio.wait_for(state="visible", timeout=5000)
+        self.gender_male_radio.check()
+        self.first_name_input.fill('')
+        self.first_name_input.type(user_data.first_name, delay=100)
+        self.last_name_input.fill('')
+        self.last_name_input.type(user_data.last_name, delay=100)
+        self.email_input.fill('')
+        self.email_input.type(user_data.email, delay=100)
+        self.password_input.fill('')
+        self.password_input.type(user_data.password, delay=100)
+        self.terms_and_conditions_checkbox.check()
+        self.customer_privacy_checkbox.check()
+        self.save_form_button.click()
