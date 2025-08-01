@@ -14,3 +14,8 @@ class ContactPage(BasePage):
         super().__init__(page)
         self.frame = page.frame_locator("#framelive")
         self.contact_form_heading = self.frame.locator(ContactPageLocators.CONTACT_FORM_HEADING)
+        self.subject_label = self.frame.locator(ContactPageLocators.SUBJECT_LABEL)
+        self.email_label = self.frame.locator(ContactPageLocators.EMAIL_LABEL)
+        self.attachment_label = self.frame.locator(ContactPageLocators.ATTACHMENT_LABEL)
+        self.message_label = self.frame.locator(ContactPageLocators.MESSAGE_LABEL)
+        self.send_button = self.frame.locator(ContactPageLocators.SEND_BUTTON)
