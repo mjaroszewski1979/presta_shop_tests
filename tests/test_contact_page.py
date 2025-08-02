@@ -12,7 +12,7 @@ from data.contact_data import get_contact_label_data
 
 def test_contact_form_is_visible_with_text(home_page, contact_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    Validates that the 'Contact Us' form is visible and all expected labels are correctly displayed.
     """
     home_page.contact_link.wait_for(state="visible", timeout=5000)
     home_page.contact_link.click()

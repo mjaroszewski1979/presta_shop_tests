@@ -31,16 +31,35 @@ class CreateAccountPage(BasePage):
         self.save_form_button = self.frame.locator(CreateAccountPageLocators.SAVE_FORM_BUTTON)
 
     def submit_create_account_form_with_valid_data(self, user_data):
+        """
+        Fills out and submits the create account form using the provided user data.
+
+        Args:
+            user_data: An object containing valid user information (first name, last name, email, password).
+        """
+        # Wait for the gender radio button to appear and select it
         self.gender_male_radio.wait_for(state="visible", timeout=5000)
         self.gender_male_radio.check()
+
+        # Fill out the first name input with simulated typing delay
         self.first_name_input.fill('')
         self.first_name_input.type(user_data.first_name, delay=100)
+
+        # Fill out the last name input with simulated typing delay
         self.last_name_input.fill('')
         self.last_name_input.type(user_data.last_name, delay=100)
+
+        # Fill out the email input with simulated typing delay
         self.email_input.fill('')
         self.email_input.type(user_data.email, delay=100)
+
+        # Fill out the password input with simulated typing delay
         self.password_input.fill('')
         self.password_input.type(user_data.password, delay=100)
+
+        # Check the required checkboxes for terms acceptance and privacy
         self.terms_and_conditions_checkbox.check()
         self.customer_privacy_checkbox.check()
+
+        # Click the button to submit the form
         self.save_form_button.click()
