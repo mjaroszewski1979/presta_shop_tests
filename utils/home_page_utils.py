@@ -48,3 +48,11 @@ def generate_password(min_len: int = 8, max_len: int = 72) -> str:
     length = random.randint(min_len, max_len)
     characters = string.ascii_letters + string.digits + string.punctuation
     return ''.join(random.choices(characters, k=length))
+
+
+def generate_random_message(min_length=50, max_length=100):
+    target_length = random.randint(min_length, max_length)
+    message = ''
+    while len(message) < target_length:
+        message += fake.sentence()
+    return message[:target_length] 
