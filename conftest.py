@@ -6,6 +6,7 @@ from pages.sign_page import SignPage
 from pages.search_page import SearchPage
 from pages.clothes_page import ClothesPage
 from pages.accessories_page import AccessoriesPage
+from pages.accessories_home_page import AccessoriesHomePage
 from pages.art_page import ArtPage
 from pages.create_account_page import CreateAccountPage
 
@@ -103,6 +104,16 @@ def accessories_page(page):
     """
     accessories = AccessoriesPage(page)
     return accessories
+
+@pytest.fixture
+def accessories_home_page(page):
+    """
+    Initializes the AccessoriesHomePage object for accessory-related test cases.
+    Returns:
+        AccessoriesHomePage: An instance of the AccessoriesPage POM.
+    """
+    accessories_home = AccessoriesHomePage(page)
+    return accessories_home
 
 @pytest.fixture
 def art_page(page):
