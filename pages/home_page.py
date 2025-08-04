@@ -37,6 +37,7 @@ class HomePage(BasePage):
         # Product and carousel sections
         self.featured_products = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS)
         self.featured_products_h2 = self.frame.locator(HomePageLocators.FEATURED_PRODUCTS_H2)
+        self.first_product_link = self.frame.locator(HomePageLocators.FIRST_PRODUCT_LINK)
         self.sale_products = self.frame.locator(HomePageLocators.SALE_PRODUCTS)
         self.carousel_headings = self.frame.locator(HomePageLocators.CAROUSEL_HEADINGS)
         self.carousel_next_icon = self.frame.locator(HomePageLocators.CAROUSEL_NEXT_ICON)

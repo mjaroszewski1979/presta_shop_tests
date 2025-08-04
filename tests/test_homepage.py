@@ -144,6 +144,14 @@ def test_art_link_is_working(home_page, art_page):
     home_page.art_link.click()
     expect(art_page.art_div_header).to_contain_text("Art")
 
+def test_first_product_link_is_working(home_page, first_product_page):
+    """
+    Verify that clicking the 'First Product' link loads the correct content.
+    """
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    expect(first_product_page.content_div_header).to_contain_text("Hummingbird printed t-shirt")
+
 def test_homepage_displays_8_featured_products(home_page):
     """
     Ensure exactly 8 featured products are displayed on the homepage.

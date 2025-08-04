@@ -23,6 +23,7 @@ class HomePageLocators:
     # Featured and sale products
     FEATURED_PRODUCTS = 'section.featured-products div.products.row div.js-product.product'
     FEATURED_PRODUCTS_H2 = 'section.featured-products h2'
+    FIRST_PRODUCT_LINK = 'article[data-id-product="1"] a'
     SALE_PRODUCTS = 'section.featured-products.clearfix.mt-3 div.products div.js-product.product'
 
     # Carousel section
