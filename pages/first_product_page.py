@@ -17,6 +17,7 @@ class FirstProductPage(BasePage):
         self.current_price_span = self.frame.locator(FirstProductPageLocators.CURRENT_PRICE_SPAN)
         self.description_short_para = self.frame.locator(FirstProductPageLocators.DESCRIPTION_SHORT_PARA)
         self.size_span = self.frame.locator(FirstProductPageLocators.SIZE_SPAN)
+        self.size_select = self.frame.locator(FirstProductPageLocators.SIZE_SELECT)
         self.color_variant_span = self.frame.locator(FirstProductPageLocators.COLOR_VARIANT_SPAN)
         self.color_black_input = self.frame.locator(FirstProductPageLocators.COLOR_BLACK_INPUT)
         self.quantity_label = self.frame.locator(FirstProductPageLocators.QUANTITY_LABEL)
@@ -24,3 +25,7 @@ class FirstProductPage(BasePage):
         self.reassurance_div = self.frame.locator(FirstProductPageLocators.REASSURANCE_DIV)
         self.description_long_para = self.frame.locator(FirstProductPageLocators.DESCRIPTION_LONG_PARA)
         self.add_to_cart_button = self.frame.locator(FirstProductPageLocators.ADD_TO_CART_BUTTON)
+
+    def select_size_option(self, size):
+        self.size_select.wait_for(state="visible", timeout=5000)
+        self.size_select.select_option(size)

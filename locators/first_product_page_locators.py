@@ -7,6 +7,7 @@ class FirstProductPageLocators:
     CURRENT_PRICE_SPAN = 'span.current-price-value'
     DESCRIPTION_SHORT_PARA = 'div#product-description-short-1 p'
     SIZE_SPAN = 'div.clearfix.product-variants-item span'
+    SIZE_SELECT = 'select#group_1'
     COLOR_VARIANT_SPAN = 'div.clearfix.product-variants-item span.control-label'
     COLOR_BLACK_INPUT = 'input[title="Black"]'
     QUANTITY_LABEL = 'div.product-add-to-cart span.control-label'

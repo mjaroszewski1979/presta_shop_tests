@@ -30,6 +30,16 @@ def test_first_product_color_variant_change_is_working(home_page, first_product_
     first_product_page.color_black_input.check()
     assert_element_visible_with_text(first_product_page.color_variant_span.nth(1), 'Color: Black')
 
+def test_first_product_size_option_change_is_working(home_page, first_product_page):
+    """
+    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    """
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    size_option = "M"
+    first_product_page.select_size_option(size_option)
+    assert_element_visible_with_text(first_product_page.size_span.first, "Size: " + size_option)
+
 
 
 
