@@ -22,3 +22,19 @@ def get_first_product_data(first_product_page):
         (first_product_page.description_long_para, "Symbol of lightness and delicacy, the hummingbird evokes curiosity and joy."),
         (first_product_page.add_to_cart_button, "Add to cart"),
     ]
+def get_first_product_composition_data(first_product_page):
+    """
+    Returns a list of tuples mapping each label element in the 'Contact' form
+    to its expected display text. This is used to validate that form labels are 
+    visible and contain correct content.
+
+    Args:
+        contact_page: An instance of the ContactPage with form label locators.
+
+    Returns:
+        list[tuple]: A list of (locator, expected_text) pairs for label verification.
+    """
+    return [
+        (first_product_page.composition_name.first, "Composition"),
+        (first_product_page.composition_value.first, "Cotton"),
+    ]

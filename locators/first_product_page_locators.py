@@ -14,4 +14,7 @@ class FirstProductPageLocators:
     SOCIAL_SHARING_SPAN = 'div.social-sharing span'
     REASSURANCE_DIV = 'div.blockreassurance_product'
     DESCRIPTION_LONG_PARA = 'div#description p'
+    PRODUCT_DETAILS_LINK = 'a[aria-controls="product-details"]'
+    COMPOSITION_NAME = 'dt.name'
+    COMPOSITION_VALUE = 'dd.value'
     ADD_TO_CART_BUTTON = 'button.add-to-cart'

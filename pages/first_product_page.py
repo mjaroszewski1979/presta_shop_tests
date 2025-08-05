@@ -24,6 +24,9 @@ class FirstProductPage(BasePage):
         self.social_sharing_span = self.frame.locator(FirstProductPageLocators.SOCIAL_SHARING_SPAN)
         self.reassurance_div = self.frame.locator(FirstProductPageLocators.REASSURANCE_DIV)
         self.description_long_para = self.frame.locator(FirstProductPageLocators.DESCRIPTION_LONG_PARA)
+        self.product_details_link = self.frame.locator(FirstProductPageLocators.PRODUCT_DETAILS_LINK)
+        self.composition_name = self.frame.locator(FirstProductPageLocators.COMPOSITION_NAME)
+        self.composition_value = self.frame.locator(FirstProductPageLocators.COMPOSITION_VALUE)
         self.add_to_cart_button = self.frame.locator(FirstProductPageLocators.ADD_TO_CART_BUTTON)
 
     def select_size_option(self, size):
