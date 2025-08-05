@@ -18,6 +18,7 @@ class FirstProductPage(BasePage):
         self.description_short_para = self.frame.locator(FirstProductPageLocators.DESCRIPTION_SHORT_PARA)
         self.size_span = self.frame.locator(FirstProductPageLocators.SIZE_SPAN)
         self.color_variant_span = self.frame.locator(FirstProductPageLocators.COLOR_VARIANT_SPAN)
+        self.color_black_input = self.frame.locator(FirstProductPageLocators.COLOR_BLACK_INPUT)
         self.quantity_label = self.frame.locator(FirstProductPageLocators.QUANTITY_LABEL)
         self.social_sharing_span = self.frame.locator(FirstProductPageLocators.SOCIAL_SHARING_SPAN)
         self.reassurance_div = self.frame.locator(FirstProductPageLocators.REASSURANCE_DIV)

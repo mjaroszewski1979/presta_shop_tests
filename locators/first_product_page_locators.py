@@ -8,6 +8,7 @@ class FirstProductPageLocators:
     DESCRIPTION_SHORT_PARA = 'div#product-description-short-1 p'
     SIZE_SPAN = 'div.clearfix.product-variants-item span'
     COLOR_VARIANT_SPAN = 'div.clearfix.product-variants-item span.control-label'
+    COLOR_BLACK_INPUT = 'input[title="Black"]'
     QUANTITY_LABEL = 'div.product-add-to-cart span.control-label'
     SOCIAL_SHARING_SPAN = 'div.social-sharing span'
     REASSURANCE_DIV = 'div.blockreassurance_product'
