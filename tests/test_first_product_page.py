@@ -61,6 +61,16 @@ def test_first_product_quick_view_link_is_working(home_page, first_product_page)
     first_product_page.quick_view_link.first.click()
     assert_element_visible_with_text(first_product_page.modal_body_h1, 'Hummingbird printed t-shirt')
 
+def test_first_product_adding_to_cart_is_working(home_page, first_product_page):
+    """
+    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    """
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
+    first_product_page.add_to_cart_button.click()
+    assert_element_visible_with_text(first_product_page.cart_success_message, 'Product successfully added to your shopping cart')
+
 
 
 

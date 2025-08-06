@@ -30,6 +30,7 @@ class FirstProductPage(BasePage):
         self.add_to_cart_button = self.frame.locator(FirstProductPageLocators.ADD_TO_CART_BUTTON)
         self.quick_view_link = self.frame.locator(FirstProductPageLocators.QUICK_VIEW_LINK)
         self.modal_body_h1 = self.frame.locator(FirstProductPageLocators.MODAL_BODY_H1)
+        self.cart_success_message = self.frame.locator(FirstProductPageLocators.CART_SUCCESS_MESSAGE)
 
     def select_size_option(self, size):
         self.size_select.wait_for(state="visible", timeout=5000)

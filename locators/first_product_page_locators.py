@@ -20,3 +20,4 @@ class FirstProductPageLocators:
     ADD_TO_CART_BUTTON = 'button.add-to-cart'
     QUICK_VIEW_LINK= 'article[data-id-product="1"] a[data-link-action="quickview"]'
     MODAL_BODY_H1 = 'div.modal-body h1'
+    CART_SUCCESS_MESSAGE = 'h4#myModalLabel'
