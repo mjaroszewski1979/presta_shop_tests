@@ -28,6 +28,8 @@ class FirstProductPage(BasePage):
         self.composition_name = self.frame.locator(FirstProductPageLocators.COMPOSITION_NAME)
         self.composition_value = self.frame.locator(FirstProductPageLocators.COMPOSITION_VALUE)
         self.add_to_cart_button = self.frame.locator(FirstProductPageLocators.ADD_TO_CART_BUTTON)
+        self.quick_view_link = self.frame.locator(FirstProductPageLocators.QUICK_VIEW_LINK)
+        self.modal_body_h1 = self.frame.locator(FirstProductPageLocators.MODAL_BODY_H1)
 
     def select_size_option(self, size):
         self.size_select.wait_for(state="visible", timeout=5000)

@@ -18,3 +18,5 @@ class FirstProductPageLocators:
     COMPOSITION_NAME = 'dt.name'
     COMPOSITION_VALUE = 'dd.value'
     ADD_TO_CART_BUTTON = 'button.add-to-cart'
+    QUICK_VIEW_LINK= 'article[data-id-product="1"] a[data-link-action="quickview"]'
+    MODAL_BODY_H1 = 'div.modal-body h1'
