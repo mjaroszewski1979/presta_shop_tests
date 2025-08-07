@@ -21,3 +21,5 @@ class FirstProductPageLocators:
     QUICK_VIEW_LINK= 'article[data-id-product="1"] a[data-link-action="quickview"]'
     MODAL_BODY_H1 = 'div.modal-body h1'
     CART_SUCCESS_MESSAGE = 'h4#myModalLabel'
+    CONTINUE_SHOPPING_BUTTON = 'div.cart-content-btn button'
+    
