@@ -13,7 +13,16 @@ from data.first_product_data import get_first_product_data, get_first_product_co
 
 def test_first_product_section_is_visible_with_text(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that the first product page section is visible and displays all expected elements with correct text.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Retrieve expected locators and text values for the first product section.
+        3. Assert that all retrieved elements are visible and contain the expected text.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
@@ -22,7 +31,16 @@ def test_first_product_section_is_visible_with_text(home_page, first_product_pag
 
 def test_first_product_color_variant_change_is_working(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that changing the color variant of the first product updates the displayed selection.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Wait for the black color variant option to be visible and select it.
+        3. Assert that the selected color is displayed as 'Color: Black'.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
@@ -32,7 +50,16 @@ def test_first_product_color_variant_change_is_working(home_page, first_product_
 
 def test_first_product_size_option_change_is_working(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that changing the size option of the first product updates the displayed selection.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Select the size option "M".
+        3. Assert that the selected size is displayed as 'Size: M'.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
@@ -42,7 +69,17 @@ def test_first_product_size_option_change_is_working(home_page, first_product_pa
 
 def test_first_product_details_section_is_visible_with_text(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that the product details section is accessible and displays the expected composition information.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Wait for the 'Product details' link to be visible and click it.
+        3. Retrieve expected locators and text values for the composition section.
+        4. Assert that all retrieved elements are visible and contain the expected text.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
@@ -53,7 +90,16 @@ def test_first_product_details_section_is_visible_with_text(home_page, first_pro
 
 def test_first_product_quick_view_link_is_working(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that the 'Quick View' feature for the first product opens the correct product modal.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and hover over it.
+        2. Wait for the 'Quick View' link to be visible and click it.
+        3. Assert that the modal displays the correct product title.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.hover()
@@ -63,7 +109,16 @@ def test_first_product_quick_view_link_is_working(home_page, first_product_page)
 
 def test_first_product_adding_to_cart_is_working(home_page, first_product_page):
     """
-    Validates that the 'Create Account' form is visible and all expected labels are correctly displayed.
+    UI Test: Verify that the first product can be successfully added to the shopping cart.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Wait for the 'Add to cart' button to be visible and click it.
+        3. Assert that a success message is displayed confirming the product was added.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
     """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
