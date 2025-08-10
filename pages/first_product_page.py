@@ -32,6 +32,7 @@ class FirstProductPage(BasePage):
         self.modal_body_h1 = self.frame.locator(FirstProductPageLocators.MODAL_BODY_H1)
         self.cart_success_message = self.frame.locator(FirstProductPageLocators.CART_SUCCESS_MESSAGE)
         self.continue_shopping_button = self.frame.locator(FirstProductPageLocators.CONTINUE_SHOPPING_BUTTON)
+        self.checkout_link = self.frame.locator(FirstProductPageLocators.CHECKOUT_LINK)
         self.modal_product_name = self.frame.locator(FirstProductPageLocators.MODAL_PRODUCT_NAME)
         self.modal_product_price = self.frame.locator(FirstProductPageLocators.MODAL_PRODUCT_PRICE)
         self.modal_product_size = self.frame.locator(FirstProductPageLocators.MODAL_PRODUCT_SIZE)

@@ -15,3 +15,5 @@ class CartPage(BasePage):
         self.frame = page.frame_locator("#framelive")
         self.remove_from_cart_link = self.frame.locator(CartPageLocators.REMOVE_FROM_CART_LINK)
         self.items_info_span = self.frame.locator(CartPageLocators.ITEMS_INFO_SPAN)
+        self.proceed_to_checkout_link = self.frame.locator(CartPageLocators.PROCEED_TO_CHECKOUT_LINK)
+        self.personal_info_header = self.frame.locator(CartPageLocators.PERSONAL_INFO_HEADER)

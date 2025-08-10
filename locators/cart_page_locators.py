@@ -5,3 +5,5 @@ class CartPageLocators:
     """
     REMOVE_FROM_CART_LINK = 'a.remove-from-cart'
     ITEMS_INFO_SPAN = 'div.cart-overview.js-cart span.no-items'
+    PROCEED_TO_CHECKOUT_LINK = 'div.checkout.cart-detailed-actions a'
+    PERSONAL_INFO_HEADER = 'section#checkout-personal-information-step h1'

@@ -31,3 +31,4 @@ class FirstProductPageLocators:
     MODAL_SUBTOTAL_VALUE = 'div.col-md-7 span.subtotal.value'
     MODAL_SHIPPING_VALUE = 'div.col-md-7 span.shipping.value'
     MODAL_TOTAL_VALUE = 'div.col-md-7 p.product-total span.value'
+    CHECKOUT_LINK = 'div.cart-content-btn a'
