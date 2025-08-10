@@ -5,7 +5,7 @@ from playwright.sync_api import expect
 from utils.assertions import assert_elements_visible_with_texts, assert_element_visible_with_text
 
 # Import test data provider for create account form labels.
-from data.first_product_data import get_first_product_data, get_first_product_composition_data
+from data.first_product_data import get_first_product_data, get_first_product_composition_data, get_first_product_cart_modal_data
 
 
 
@@ -125,6 +125,27 @@ def test_first_product_adding_to_cart_is_working(home_page, first_product_page):
     first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
     first_product_page.add_to_cart_button.click()
     assert_element_visible_with_text(first_product_page.cart_success_message, 'Product successfully added to your shopping cart')
+
+def test_first_product_cart_modal_is_visible_with_text(home_page, first_product_page):
+    """
+    UI Test: Verify that the product details section is accessible and displays the expected composition information.
+
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Wait for the 'Product details' link to be visible and click it.
+        3. Retrieve expected locators and text values for the composition section.
+        4. Assert that all retrieved elements are visible and contain the expected text.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
+    """
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
+    first_product_page.add_to_cart_button.click()
+    locators_and_texts = get_first_product_cart_modal_data(first_product_page)
+    assert_elements_visible_with_texts(locators_and_texts)
 
 
 

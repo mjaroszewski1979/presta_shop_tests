@@ -22,4 +22,12 @@ class FirstProductPageLocators:
     MODAL_BODY_H1 = 'div.modal-body h1'
     CART_SUCCESS_MESSAGE = 'h4#myModalLabel'
     CONTINUE_SHOPPING_BUTTON = 'div.cart-content-btn button'
-    
+    MODAL_PRODUCT_NAME = 'div.col-md-6 h6'
+    MODAL_PRODUCT_PRICE = 'div.col-md-6 p.product-price'
+    MODAL_PRODUCT_SIZE = 'div.col-md-6 span.size'
+    MODAL_PRODUCT_COLOR = 'div.col-md-6 span.color'
+    MODAL_PRODUCT_QUANTITY = 'div.col-md-6 span.product-quantity'
+    MODAL_PRODUCT_COUNT_INFO = 'div.col-md-7 p.cart-products-count'
+    MODAL_SUBTOTAL_VALUE = 'div.col-md-7 span.subtotal.value'
+    MODAL_SHIPPING_VALUE = 'div.col-md-7 span.shipping.value'
+    MODAL_TOTAL_VALUE = 'div.col-md-7 p.product-total span.value'
