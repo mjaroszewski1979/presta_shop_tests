@@ -1,14 +1,14 @@
 def get_sign_in_form_data(cart_page):
     """
-    Returns a list of tuples mapping each label element in the 'Contact' form
-    to its expected display text. This is used to validate that form labels are 
-    visible and contain correct content.
+    Returns a list of tuples mapping each sign-in form element to its expected display text.
+    This is used to validate that all sign-in form labels and links are visible and contain
+    the correct content.
 
     Args:
-        contact_page: An instance of the ContactPage with form label locators.
+        cart_page: An instance of the CartPage with sign-in form locators.
 
     Returns:
-        list[tuple]: A list of (locator, expected_text) pairs for label verification.
+        list[tuple]: A list of (locator, expected_text) pairs for element verification.
     """
     return [
         (cart_page.form_email_label, "Email"),
@@ -18,15 +18,15 @@ def get_sign_in_form_data(cart_page):
     ]
 def get_personal_info_form_data(cart_page):
     """
-    Returns a list of tuples mapping each label element in the 'Contact' form
-    to its expected display text. This is used to validate that form labels are 
-    visible and contain correct content.
+    Returns a list of tuples mapping each personal information form element to its expected 
+    display text. This is used to validate that all personal information fields, checkboxes, 
+    and action buttons are visible and contain the correct content during the checkout process.
 
     Args:
-        contact_page: An instance of the ContactPage with form label locators.
+        cart_page: An instance of the CartPage with personal information form locators.
 
     Returns:
-        list[tuple]: A list of (locator, expected_text) pairs for label verification.
+        list[tuple]: A list of (locator, expected_text) pairs for element verification.
     """
     return [
         (cart_page.social_title_label, "Social title"),
