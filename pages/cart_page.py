@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from locators.cart_page_locators import CartPageLocators
+from utils.home_page_utils import generate_unique_email, generate_password, generate_first_name, generate_last_name, generate_birthdate
 
 class CartPage(BasePage):
     """
@@ -44,6 +45,48 @@ class CartPage(BasePage):
         self.password_label = self.frame.locator(CartPageLocators.PASSWORD_LABEL)
         self.birthday_label = self.frame.locator(CartPageLocators.BIRTHDAY_LABEL)
         self.checkbox_labels = self.frame.locator(CartPageLocators.CHECKBOX_LABELS)
+        self.personal_info_edit_span = self.frame.locator(CartPageLocators.PERSONAL_INFO_EDIT_SPAN)
+        self.personal_info_continue_button = self.frame.locator(CartPageLocators.PERSONAL_INFO_CONTINUE_BUTTON)
+
+        # Personal information form inputs
+        self.social_title_checkbox_male = self.frame.locator(CartPageLocators.SOCIAL_TITLE_CHECKBOX_MALE)
+        self.first_name_input = self.frame.locator(CartPageLocators.FIRST_NAME_INPUT)
+        self.last_name_input = self.frame.locator(CartPageLocators.LAST_NAME_INPUT)
+        self.email_input = self.frame.locator(CartPageLocators.EMAIL_INPUT)
+        self.password_input = self.frame.locator(CartPageLocators.PASSWORD_INPUT)
+        self.birthday_input = self.frame.locator(CartPageLocators.BIRTHDAY_INPUT)
+        self.receive_offers_checkbox = self.frame.locator(CartPageLocators.RECEIVE_OFFERS_CHECKBOX)
+        self.terms_conditions_checkbox = self.frame.locator(CartPageLocators.TERMS_CONDITIONS_CHECKBOX)
+        self.newsletter_checkbox = self.frame.locator(CartPageLocators.NEWSLETTER_CHECKBOX)
+        self.customer_privacy_checkbox = self.frame.locator(CartPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
+
+
 
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
+
+    def submit_personal_info_form_with_valid_data(self):
+        first_name= generate_first_name()
+        last_name = generate_last_name()
+        email = generate_unique_email()
+        password = generate_password()
+        birthday = generate_birthdate()
+        self.social_title_checkbox_male.wait_for(state="visible", timeout=5000)
+        self.social_title_checkbox_male.check()
+        self.first_name_input.fill('')
+        self.first_name_input.type(first_name, delay=100)
+        self.last_name_input.fill('')
+        self.last_name_input.type(last_name, delay=100)
+        self.email_input.first.fill('')
+        self.email_input.first.type(email, delay=100)
+        self.password_input.first.fill('')
+        self.password_input.first.type(password, delay=100)
+        self.birthday_input.fill('')
+        self.birthday_input.type(birthday, delay=100)
+        self.receive_offers_checkbox.check() 
+        self.terms_conditions_checkbox.check() 
+        self.newsletter_checkbox.check() 
+        self.customer_privacy_checkbox.check()
+        self.personal_info_continue_button.click()
+
+ 

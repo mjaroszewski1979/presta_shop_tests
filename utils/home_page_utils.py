@@ -56,3 +56,19 @@ def generate_random_message(min_length=50, max_length=100):
     while len(message) < target_length:
         message += fake.sentence()
     return message[:target_length] 
+
+def generate_birthdate(min_age=18, max_age=90) -> str:
+    """
+    Generates a random birthdate in the format 'dd/mm/yyyy'.
+
+    Args:
+        min_age (int): Minimum age of the generated person.
+        max_age (int): Maximum age of the generated person.
+
+    Returns:
+        str: Random date string in 'dd/mm/yyyy' format.
+    """
+    # Losowy wiek w zakresie
+    age = random.randint(min_age, max_age)
+    birthdate = fake.date_of_birth(minimum_age=age, maximum_age=age)
+    return birthdate.strftime("%d/%m/%Y")
