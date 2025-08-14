@@ -42,3 +42,28 @@ def get_personal_info_form_data(cart_page):
         (cart_page.checkbox_labels.nth(3), "Customer data privacy"),
         (cart_page.continue_button, "Continue"),
     ]
+
+def get_address_form_data(cart_page):
+    """
+    Returns a list of tuples mapping each personal information form element to its expected 
+    display text. This is used to validate that all personal information fields, checkboxes, 
+    and action buttons are visible and contain the correct content during the checkout process.
+
+    Args:
+        cart_page: An instance of the CartPage with personal information form locators.
+
+    Returns:
+        list[tuple]: A list of (locator, expected_text) pairs for element verification.
+    """
+    return [
+        (cart_page.address_first_name_label, "First name"),
+        (cart_page.address_last_name_label, "Last name"),
+        (cart_page.address_company_label, "Company"),
+        (cart_page.address_vat_label, "VAT number"),
+        (cart_page.address_label, "Address"),
+        (cart_page.address_city_label, "City"),
+        (cart_page.address_country_label, "Country"),
+        (cart_page.same_address_label, "Use this address for invoice too"),
+        (cart_page.address_continue_button, "Continue"),
+
+    ]

@@ -60,6 +60,21 @@ class CartPage(BasePage):
         self.newsletter_checkbox = self.frame.locator(CartPageLocators.NEWSLETTER_CHECKBOX)
         self.customer_privacy_checkbox = self.frame.locator(CartPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
 
+        # Address information form labels
+        self.address_first_name_label = self.frame.locator(CartPageLocators.ADDRESS_FIRST_NAME_LABEL)
+        self.address_last_name_label = self.frame.locator(CartPageLocators.ADDRESS_LAST_NAME_LABEL)
+        self.address_company_label = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_LABEL)
+        self.address_vat_label = self.frame.locator(CartPageLocators.ADDRESS_VAT_LABEL)
+        self.address_label = self.frame.locator(CartPageLocators.ADDRESS_LABEL)
+        self.address_postcode_label = self.frame.locator(CartPageLocators.ADDRESS_POSTCODE_LABEL)
+        self.address_city_label = self.frame.locator(CartPageLocators.ADDRESS_CITY_LABEL)
+        self.address_country_label = self.frame.locator(CartPageLocators.ADDRESS_COUNTRY_LABEL)
+        self.address_phone_label = self.frame.locator(CartPageLocators.ADDRESS_PHONE_LABEL)
+        self.same_address_label = self.frame.locator(CartPageLocators.SAME_ADDRESS_LABEL)
+        self.address_continue_button = self.frame.locator(CartPageLocators.ADDRESS_CONTINUE_BUTTON)
+
+
+
 
 
         # Continue button for progressing through checkout steps
