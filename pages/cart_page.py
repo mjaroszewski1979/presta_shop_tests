@@ -1,6 +1,17 @@
 from pages.base_page import BasePage
 from locators.cart_page_locators import CartPageLocators
-from utils.home_page_utils import generate_unique_email, generate_password, generate_first_name, generate_last_name, generate_birthdate
+from utils.home_page_utils import (
+    generate_unique_email, 
+    generate_password, 
+    generate_first_name, 
+    generate_last_name, 
+    generate_birthdate,
+    generate_company_name,
+    generate_vat_number,
+    generate_postal_code,
+    generate_street_address,
+    generate_city_name,
+    generate_phone_number)
 
 class CartPage(BasePage):
     """
@@ -72,6 +83,17 @@ class CartPage(BasePage):
         self.address_phone_label = self.frame.locator(CartPageLocators.ADDRESS_PHONE_LABEL)
         self.same_address_label = self.frame.locator(CartPageLocators.SAME_ADDRESS_LABEL)
         self.address_continue_button = self.frame.locator(CartPageLocators.ADDRESS_CONTINUE_BUTTON)
+        self.address_info_edit_span = self.frame.locator(CartPageLocators.ADDRESS_INFO_EDIT_SPAN)
+        self.form_fields_section = self.frame.locator(CartPageLocators.FORM_FIELDS_SECTION)
+
+
+        # Address information form inputs
+        self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
+        self.address_vat_input = self.frame.locator(CartPageLocators.ADDRESS_VAT_INPUT)
+        self.address_input = self.frame.locator(CartPageLocators.ADDRESS_INPUT)
+        self.address_postcode_input = self.frame.locator(CartPageLocators.ADDRESS_POSTCODE_INPUT)
+        self.address_city_input = self.frame.locator(CartPageLocators.ADDRESS_CITY_INPUT)
+        self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
 
 
 
@@ -103,5 +125,28 @@ class CartPage(BasePage):
         self.newsletter_checkbox.check() 
         self.customer_privacy_checkbox.check()
         self.personal_info_continue_button.click()
+
+    def submit_address_form_with_valid_data(self):
+        company = generate_company_name()
+        vat = generate_vat_number()
+        address = generate_street_address()
+        postcode = generate_postal_code()
+        city = generate_city_name()
+        phone = generate_phone_number()
+        self.form_fields_section.wait_for(state="visible", timeout=15000)
+        self.address_company_input.fill('')
+        self.address_company_input.type(company, delay=100)
+        self.address_vat_input.fill('')
+        self.address_vat_input.type(vat, delay=100)
+        self.address_input.fill('')
+        self.address_input.type(address, delay=100)
+        self.address_postcode_input.fill('')
+        self.address_postcode_input.type(postcode, delay=100)
+        self.address_city_input.fill('')
+        self.address_city_input.type(city, delay=100)
+        self.address_phone_input.fill('')
+        self.address_phone_input.type(phone, delay=100)
+        self.address_continue_button.click()
+
 
  

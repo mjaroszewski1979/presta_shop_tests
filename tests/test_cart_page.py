@@ -152,6 +152,20 @@ def test_submitting_personal_info_form_with_valid_data_is_working(home_page, fir
     assert_element_visible_with_text(cart_page.personal_info_edit_span, 'Edit')
 
 def test_address_form_is_visible_with_text(home_page, first_product_page, cart_page):
+
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
+    first_product_page.add_to_cart_button.click()
+    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
+    first_product_page.checkout_link.click()
+    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
+    cart_page.proceed_to_checkout_link.click()
+    cart_page.submit_personal_info_form_with_valid_data()
+    locators_and_texts = get_address_form_data(cart_page)
+    assert_elements_visible_with_texts(locators_and_texts)
+
+def test_submitting_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
     """
     UI Test: Verify that the personal information form in the checkout process is visible and displays all expected text labels.
 
@@ -177,8 +191,8 @@ def test_address_form_is_visible_with_text(home_page, first_product_page, cart_p
     cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
     cart_page.proceed_to_checkout_link.click()
     cart_page.submit_personal_info_form_with_valid_data()
-    locators_and_texts = get_address_form_data(cart_page)
-    assert_elements_visible_with_texts(locators_and_texts)
+    cart_page.submit_address_form_with_valid_data()
+    assert_element_visible_with_text(cart_page.address_info_edit_span, 'Edit')
 
 
 

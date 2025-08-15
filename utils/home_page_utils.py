@@ -72,3 +72,42 @@ def generate_birthdate(min_age=18, max_age=90) -> str:
     age = random.randint(min_age, max_age)
     birthdate = fake.date_of_birth(minimum_age=age, maximum_age=age)
     return birthdate.strftime("%d/%m/%Y")
+
+def generate_company_name() -> str:
+    """
+    Generates a fake company name.
+    """
+    return fake.company()
+
+def generate_vat_number(country_code="FR") -> str:
+    """
+    Generates a fake VAT number in the format 'FR12 345678901'.
+    """
+    prefix = country_code
+    digits = ''.join(random.choices(string.digits, k=11))
+    check_digits = ''.join(random.choices(string.digits, k=2))
+    return f"{prefix}{check_digits} {digits}"
+
+def generate_street_address() -> str:
+    """
+    Generates a fake street name with building number.
+    """
+    return fake.street_address()
+
+def generate_postal_code() -> str:
+    """
+    Generates a fake postal code (5 digits).
+    """
+    return fake.postcode()
+
+def generate_city_name() -> str:
+    """
+    Generates a fake city name.
+    """
+    return fake.city()
+
+def generate_phone_number(digits=10) -> str:
+    """
+    Generates a fake phone number with a specific number of digits.
+    """
+    return ''.join(random.choices(string.digits, k=digits))
