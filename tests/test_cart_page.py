@@ -125,15 +125,16 @@ def test_personal_info_form_is_visible_with_text(home_page, first_product_page, 
 
 def test_submitting_personal_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
     """
-    UI Test: Verify that the personal information form in the checkout process is visible and displays all expected text labels.
+    UI Test: Verify that the address information form can be successfully submitted with valid data.
 
     Steps:
         1. Wait for the first product link on the home page to be visible and click it.
         2. Wait for the 'Add to cart' button to be visible and click it.
         3. Wait for the 'Checkout' link in the product page modal to be visible and click it.
         4. Wait for the 'Proceed to checkout' link on the cart page to be visible and click it.
-        5. Retrieve expected locators and text values for the personal information form.
-        6. Assert that all retrieved elements are visible and contain the expected text.
+        5. Submit the personal information form with valid data.
+        6. Submit the address information form with valid data.
+        7. Assert that the 'Edit' option is visible, confirming that the form was successfully submitted.
 
     Args:
         home_page: Page Object for the home page.
@@ -152,7 +153,23 @@ def test_submitting_personal_info_form_with_valid_data_is_working(home_page, fir
     assert_element_visible_with_text(cart_page.personal_info_edit_span, 'Edit')
 
 def test_address_form_is_visible_with_text(home_page, first_product_page, cart_page):
+    """
+    UI Test: Verify that the address form in the checkout process is visible and displays all expected text labels.
 
+    Steps:
+        1. Wait for the first product link on the home page to be visible and click it.
+        2. Wait for the 'Add to cart' button to be visible and click it.
+        3. Wait for the 'Checkout' link in the product page modal to be visible and click it.
+        4. Wait for the 'Proceed to checkout' link on the cart page to be visible and click it.
+        5. Submit the personal information form with valid data.
+        6. Retrieve expected locators and text values for the address form.
+        7. Assert that all retrieved elements are visible and contain the expected text.
+
+    Args:
+        home_page: Page Object for the home page.
+        first_product_page: Page Object for the first product's details page.
+        cart_page: Page Object for the cart and checkout process.
+    """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
     first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
@@ -167,15 +184,16 @@ def test_address_form_is_visible_with_text(home_page, first_product_page, cart_p
 
 def test_submitting_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
     """
-    UI Test: Verify that the personal information form in the checkout process is visible and displays all expected text labels.
+    UI Test: Verify that the address information form can be successfully submitted with valid data.
 
     Steps:
         1. Wait for the first product link on the home page to be visible and click it.
         2. Wait for the 'Add to cart' button to be visible and click it.
         3. Wait for the 'Checkout' link in the product page modal to be visible and click it.
         4. Wait for the 'Proceed to checkout' link on the cart page to be visible and click it.
-        5. Retrieve expected locators and text values for the personal information form.
-        6. Assert that all retrieved elements are visible and contain the expected text.
+        5. Submit the personal information form with valid data.
+        6. Submit the address information form with valid data.
+        7. Assert that the 'Edit' option is visible, confirming that the form was successfully submitted.
 
     Args:
         home_page: Page Object for the home page.
