@@ -3,16 +3,24 @@ class CartPageLocators:
     CSS selectors for locating UI elements on the search results page.
     Used in the SearchPage Page Object.
     """
+
+    # Cart management elements
     REMOVE_FROM_CART_LINK = 'a.remove-from-cart'
     ITEMS_INFO_SPAN = 'div.cart-overview.js-cart span.no-items'
+
+    # Checkout process elements
     PROCEED_TO_CHECKOUT_LINK = 'div.checkout.cart-detailed-actions a'
     PERSONAL_INFO_HEADER = 'section#checkout-personal-information-step h1'
     ORDER_AS_GUEST_LINK = 'div.content a[aria-controls="checkout-guest-form"]'
     SIGN_IN_LINK = 'div.content a[aria-controls="checkout-login-form"]'
+
+    # Sign-in form elements
     FORM_INFO_PARA = 'p.form-informations'
     FORM_EMAIL_LABEL = 'form#login-form label[for="field-email"]'
     FORM_PASSWORD_LABEL = 'form#login-form label[for="field-password"]'
     FORGOT_PASSWORD_LINK = 'div.forgot-password a'
+
+    # Personal information form labels
     SOCIAL_TITLE_LABEL = 'div#checkout-guest-form label[for="field-id_gender"]'
     FIRST_NAME_LABEL = 'div#checkout-guest-form label[for="field-firstname"]'
     LAST_NAME_LABEL = 'div#checkout-guest-form label[for="field-lastname"]'
@@ -20,7 +28,11 @@ class CartPageLocators:
     PASSWORD_LABEL = 'div#checkout-guest-form label[for="field-password"]'
     BIRTHDAY_LABEL = 'div#checkout-guest-form label[for="field-birthday"]'
     CHECKBOX_LABELS = 'span.custom-checkbox label'
+
+    # Continue button for progressing through checkout steps
     CONTINUE_BUTTON = 'footer.form-footer.clearfix button[data-link-action="register-new-customer"]'
+
+    # Personal information form inputs
     SOCIAL_TITLE_CHECKBOX_MALE = 'input#field-id_gender-1'
     FIRST_NAME_INPUT = 'input#field-firstname'
     LAST_NAME_INPUT = 'input#field-lastname'
@@ -33,6 +45,8 @@ class CartPageLocators:
     CUSTOMER_PRIVACY_CHECKBOX = 'input[name="customer_privacy"]'
     PERSONAL_INFO_CONTINUE_BUTTON = 'button[data-link-action="register-new-customer"]'
     PERSONAL_INFO_EDIT_SPAN = 'section#checkout-personal-information-step span.step-edit.text-muted'
+
+    # Address information form labels
     ADDRESS_FIRST_NAME_LABEL = 'section.form-fields label[for="field-firstname"]'
     ADDRESS_LAST_NAME_LABEL = 'section.form-fields label[for="field-lastname"]'
     ADDRESS_COMPANY_LABEL = 'section.form-fields label[for="field-company"]'
@@ -44,6 +58,8 @@ class CartPageLocators:
     ADDRESS_PHONE_LABEL = 'section.form-fields label[for="field-phone"]'
     SAME_ADDRESS_LABEL = 'section.form-fields label[for="use_same_address"]'
     ADDRESS_CONTINUE_BUTTON = 'footer button[name="confirm-addresses"]'
+
+    # Address information form inputs
     ADDRESS_FIRST_NAME_INPUT = 'section.form-fields input#field-firstname'
     ADDRESS_LAST_NAME_INPUT = 'section.form-fields input#field-lastname'
     ADDRESS_COMPANY_INPUT = 'section.form-fields input#field-company'
