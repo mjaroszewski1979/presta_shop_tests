@@ -1,5 +1,10 @@
+# Import the base page object providing reusable browser interaction methods.
 from pages.base_page import BasePage
+
+# Import all locators related to the Cart Page for element identification.
 from locators.cart_page_locators import CartPageLocators
+
+# Import utility functions for generating realistic test data (e.g., user details).
 from utils.home_page_utils import (
     generate_unique_email, 
     generate_password, 
@@ -86,7 +91,6 @@ class CartPage(BasePage):
         self.address_info_edit_span = self.frame.locator(CartPageLocators.ADDRESS_INFO_EDIT_SPAN)
         self.form_fields_section = self.frame.locator(CartPageLocators.FORM_FIELDS_SECTION)
 
-
         # Address information form inputs
         self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
         self.address_vat_input = self.frame.locator(CartPageLocators.ADDRESS_VAT_INPUT)
@@ -95,21 +99,25 @@ class CartPage(BasePage):
         self.address_city_input = self.frame.locator(CartPageLocators.ADDRESS_CITY_INPUT)
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
 
-
-
-
-
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
 
     def submit_personal_info_form_with_valid_data(self):
+        """
+        Fill and submit the personal information form using randomly 
+        generated valid test data. 
+        Includes first name, last name, email, password, and birthday.
+        Also checks all required agreement checkboxes before submission.
+        """
         first_name= generate_first_name()
         last_name = generate_last_name()
         email = generate_unique_email()
         password = generate_password()
         birthday = generate_birthdate()
+
         self.social_title_checkbox_male.wait_for(state="visible", timeout=5000)
         self.social_title_checkbox_male.check()
+
         self.first_name_input.fill('')
         self.first_name_input.type(first_name, delay=100)
         self.last_name_input.fill('')
@@ -127,13 +135,21 @@ class CartPage(BasePage):
         self.personal_info_continue_button.click()
 
     def submit_address_form_with_valid_data(self):
+        """
+        Fill and submit the address information form with randomly 
+        generated valid test data. 
+        Includes company details, VAT number, street address, postcode, 
+        city, and phone number.
+        """
         company = generate_company_name()
         vat = generate_vat_number()
         address = generate_street_address()
         postcode = generate_postal_code()
         city = generate_city_name()
         phone = generate_phone_number()
+
         self.form_fields_section.wait_for(state="visible", timeout=15000)
+        
         self.address_company_input.fill('')
         self.address_company_input.type(company, delay=100)
         self.address_vat_input.fill('')
