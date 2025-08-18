@@ -65,5 +65,13 @@ def get_address_form_data(cart_page):
         (cart_page.address_country_label, "Country"),
         (cart_page.same_address_label, "Use this address for invoice too"),
         (cart_page.address_continue_button, "Continue"),
+    ]
 
+def get_delivery_form_data(cart_page):
+
+    return [
+        (cart_page.click_collect_span, "Click and collect"),
+        (cart_page.my_carrier_span, "My carrier"),
+        (cart_page.delivery_message_label, "If you would like to add a comment about your order, please write it in the field below."),
+        (cart_page.delivery_continue_button, "Continue"),
     ]

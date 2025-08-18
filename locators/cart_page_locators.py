@@ -70,3 +70,9 @@ class CartPageLocators:
     ADDRESS_PHONE_INPUT = 'section.form-fields input#field-phone'
     ADDRESS_INFO_EDIT_SPAN = 'section#checkout-addresses-step span.step-edit.text-muted'
     FORM_FIELDS_SECTION = 'section.form-fields'
+
+    # Shipping information form labels
+    CLICK_COLLECT_SPAN = 'label[for="delivery_option_1"] span.h6.carrier-name'
+    MY_CARRIER_SPAN = 'label[for="delivery_option_2"] span.h6.carrier-name'
+    DELIVERY_MESSAGE_LABEL = 'label[for="delivery_message"]'
+    DELIVERY_CONTINUE_BUTTON = 'button[name="confirmDeliveryOption"]'

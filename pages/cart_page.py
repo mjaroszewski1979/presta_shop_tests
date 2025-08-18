@@ -99,6 +99,12 @@ class CartPage(BasePage):
         self.address_city_input = self.frame.locator(CartPageLocators.ADDRESS_CITY_INPUT)
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
 
+        # Shipping information form labels
+        self.click_collect_span = self.frame.locator(CartPageLocators.CLICK_COLLECT_SPAN)
+        self.my_carrier_span = self.frame.locator(CartPageLocators.MY_CARRIER_SPAN)
+        self.delivery_message_label = self.frame.locator(CartPageLocators.DELIVERY_MESSAGE_LABEL)
+        self.delivery_continue_button = self.frame.locator(CartPageLocators.DELIVERY_CONTINUE_BUTTON)
+
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
 
@@ -148,7 +154,7 @@ class CartPage(BasePage):
         city = generate_city_name()
         phone = generate_phone_number()
 
-        self.form_fields_section.wait_for(state="visible", timeout=15000)
+        self.address_continue_button.wait_for(state="visible", timeout=15000)
         
         self.address_company_input.fill('')
         self.address_company_input.type(company, delay=100)
