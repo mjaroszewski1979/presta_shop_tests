@@ -105,6 +105,12 @@ class CartPage(BasePage):
         self.delivery_message_label = self.frame.locator(CartPageLocators.DELIVERY_MESSAGE_LABEL)
         self.delivery_continue_button = self.frame.locator(CartPageLocators.DELIVERY_CONTINUE_BUTTON)
 
+        # Shipping information form inputs
+        self.my_carrier_input = self.frame.locator(CartPageLocators.MY_CARRIER_INPUT)
+
+        # Payment information form labels
+        self.bank_wire_label = self.frame.locator(CartPageLocators.BANK_WIRE_LABEL)
+
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
 
@@ -169,6 +175,12 @@ class CartPage(BasePage):
         self.address_phone_input.fill('')
         self.address_phone_input.type(phone, delay=100)
         self.address_continue_button.click()
+
+    def submit_shipping_form(self):
+
+        self.my_carrier_input.wait_for(state="visible", timeout=15000)
+        self.my_carrier_input.check()
+        self.delivery_continue_button.click()
 
 
  

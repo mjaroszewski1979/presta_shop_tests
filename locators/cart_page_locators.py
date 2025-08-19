@@ -76,3 +76,10 @@ class CartPageLocators:
     MY_CARRIER_SPAN = 'label[for="delivery_option_2"] span.h6.carrier-name'
     DELIVERY_MESSAGE_LABEL = 'label[for="delivery_message"]'
     DELIVERY_CONTINUE_BUTTON = 'button[name="confirmDeliveryOption"]'
+
+    # Shipping information form inputs
+    MY_CARRIER_INPUT = 'input#delivery_option_2'
+
+    # Payment information form labels
+    BANK_WIRE_LABEL = 'label[for="payment-option-1"] span'
+
