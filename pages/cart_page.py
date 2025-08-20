@@ -76,6 +76,8 @@ class CartPage(BasePage):
         self.newsletter_checkbox = self.frame.locator(CartPageLocators.NEWSLETTER_CHECKBOX)
         self.customer_privacy_checkbox = self.frame.locator(CartPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
 
+        self.first_name = ''
+
         # Address information form labels
         self.address_first_name_label = self.frame.locator(CartPageLocators.ADDRESS_FIRST_NAME_LABEL)
         self.address_last_name_label = self.frame.locator(CartPageLocators.ADDRESS_LAST_NAME_LABEL)
@@ -98,6 +100,7 @@ class CartPage(BasePage):
         self.address_postcode_input = self.frame.locator(CartPageLocators.ADDRESS_POSTCODE_INPUT)
         self.address_city_input = self.frame.locator(CartPageLocators.ADDRESS_CITY_INPUT)
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
+        self.address_delivery_input = self.frame.locator(CartPageLocators.ADDRESS_DELIVERY_INPUT)
 
         # Shipping information form labels
         self.click_collect_span = self.frame.locator(CartPageLocators.CLICK_COLLECT_SPAN)
@@ -136,7 +139,7 @@ class CartPage(BasePage):
         Includes first name, last name, email, password, and birthday.
         Also checks all required agreement checkboxes before submission.
         """
-        first_name= generate_first_name()
+        self.first_name= generate_first_name()
         last_name = generate_last_name()
         email = generate_unique_email()
         password = generate_password()
@@ -146,7 +149,7 @@ class CartPage(BasePage):
         self.social_title_checkbox_male.check()
 
         self.first_name_input.fill('')
-        self.first_name_input.type(first_name, delay=100)
+        self.first_name_input.type(self.first_name, delay=100)
         self.last_name_input.fill('')
         self.last_name_input.type(last_name, delay=100)
         self.email_input.first.fill('')

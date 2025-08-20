@@ -44,7 +44,7 @@ class CartPageLocators:
     NEWSLETTER_CHECKBOX = 'input[name="newsletter"]'
     CUSTOMER_PRIVACY_CHECKBOX = 'input[name="customer_privacy"]'
     PERSONAL_INFO_CONTINUE_BUTTON = 'button[data-link-action="register-new-customer"]'
-    PERSONAL_INFO_EDIT_SPAN = 'section#checkout-personal-information-step span.step-edit.text-muted'
+    PERSONAL_INFO_EDIT_SPAN = 'section#checkout-personal-information-step'
 
     # Address information form labels
     ADDRESS_FIRST_NAME_LABEL = 'section.form-fields label[for="field-firstname"]'
@@ -70,6 +70,7 @@ class CartPageLocators:
     ADDRESS_PHONE_INPUT = 'section.form-fields input#field-phone'
     ADDRESS_INFO_EDIT_SPAN = 'section#checkout-addresses-step span.step-edit.text-muted'
     SECTION_CHECKOUT_ADDRESS = 'section#checkout-addresses-step'
+    ADDRESS_DELIVERY_INPUT = 'input[name="id_address_delivery"]'
 
     # Shipping information form labels
     CLICK_COLLECT_SPAN = 'label[for="delivery_option_1"] span.h6.carrier-name'
