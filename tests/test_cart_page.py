@@ -153,23 +153,7 @@ def test_submitting_personal_info_form_with_valid_data_is_working(home_page, fir
     assert_element_visible_with_text(cart_page.personal_info_edit_span, 'Edit')
 
 def test_submitting_and_editing_personal_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
-    """
-    UI Test: Verify that the address information form can be successfully submitted with valid data.
 
-    Steps:
-        1. Wait for the first product link on the home page to be visible and click it.
-        2. Wait for the 'Add to cart' button to be visible and click it.
-        3. Wait for the 'Checkout' link in the product page modal to be visible and click it.
-        4. Wait for the 'Proceed to checkout' link on the cart page to be visible and click it.
-        5. Submit the personal information form with valid data.
-        6. Submit the address information form with valid data.
-        7. Assert that the 'Edit' option is visible, confirming that the form was successfully submitted.
-
-    Args:
-        home_page: Page Object for the home page.
-        first_product_page: Page Object for the first product's details page.
-        cart_page: Page Object for the cart and checkout process.
-    """
     home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
     home_page.first_product_link.first.click()
     first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
@@ -242,6 +226,22 @@ def test_submitting_address_info_form_with_valid_data_is_working(home_page, firs
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     assert_element_visible_with_text(cart_page.delivery_continue_button, 'Continue')
+
+def test_submitting_and_editing_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
+
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
+    first_product_page.add_to_cart_button.click()
+    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
+    first_product_page.checkout_link.click()
+    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
+    cart_page.proceed_to_checkout_link.click()
+    cart_page.submit_personal_info_form_with_valid_data()
+    cart_page.submit_address_form_with_valid_data()
+    cart_page.section_checkout_address.wait_for(state="visible", timeout=10000)
+    cart_page.section_checkout_address.click()
+    expect(cart_page.address_delivery_div).to_contain_text(cart_page.city)
 
 def test_delivery_info_form_is_visible_with_text(home_page, first_product_page, cart_page):
 

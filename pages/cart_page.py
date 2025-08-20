@@ -94,13 +94,14 @@ class CartPage(BasePage):
         self.section_checkout_address = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_ADDRESS)
 
         # Address information form inputs
-        self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
         self.address_vat_input = self.frame.locator(CartPageLocators.ADDRESS_VAT_INPUT)
         self.address_input = self.frame.locator(CartPageLocators.ADDRESS_INPUT)
         self.address_postcode_input = self.frame.locator(CartPageLocators.ADDRESS_POSTCODE_INPUT)
         self.address_city_input = self.frame.locator(CartPageLocators.ADDRESS_CITY_INPUT)
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
-        self.address_delivery_input = self.frame.locator(CartPageLocators.ADDRESS_DELIVERY_INPUT)
+        self.address_delivery_div = self.frame.locator(CartPageLocators.ADDRESS_DELIVERY_DIV)
+
+        self.city = ''
 
         # Shipping information form labels
         self.click_collect_span = self.frame.locator(CartPageLocators.CLICK_COLLECT_SPAN)
@@ -171,17 +172,14 @@ class CartPage(BasePage):
         Includes company details, VAT number, street address, postcode, 
         city, and phone number.
         """
-        company = generate_company_name()
         vat = generate_vat_number()
         address = generate_street_address()
         postcode = generate_postal_code()
-        city = generate_city_name()
+        self.city = generate_city_name()
         phone = generate_phone_number()
 
         self.section_checkout_address.wait_for(state="visible", timeout=15000)
         
-        self.address_company_input.fill('')
-        self.address_company_input.type(company, delay=100)
         self.address_vat_input.fill('')
         self.address_vat_input.type(vat, delay=100)
         self.address_input.fill('')
@@ -189,7 +187,7 @@ class CartPage(BasePage):
         self.address_postcode_input.fill('')
         self.address_postcode_input.type(postcode, delay=100)
         self.address_city_input.fill('')
-        self.address_city_input.type(city, delay=100)
+        self.address_city_input.type(self.city, delay=100)
         self.address_phone_input.fill('')
         self.address_phone_input.type(phone, delay=100)
         self.address_continue_button.click()

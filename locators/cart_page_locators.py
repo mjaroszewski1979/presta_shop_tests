@@ -62,7 +62,6 @@ class CartPageLocators:
     # Address information form inputs
     ADDRESS_FIRST_NAME_INPUT = 'section.form-fields input#field-firstname'
     ADDRESS_LAST_NAME_INPUT = 'section.form-fields input#field-lastname'
-    ADDRESS_COMPANY_INPUT = 'section.form-fields input#field-company'
     ADDRESS_VAT_INPUT = 'section.form-fields input#field-vat_number'
     ADDRESS_INPUT = 'section.form-fields input#field-address1'
     ADDRESS_POSTCODE_INPUT = 'section.form-fields input#field-postcode'
@@ -70,7 +69,7 @@ class CartPageLocators:
     ADDRESS_PHONE_INPUT = 'section.form-fields input#field-phone'
     ADDRESS_INFO_EDIT_SPAN = 'section#checkout-addresses-step span.step-edit.text-muted'
     SECTION_CHECKOUT_ADDRESS = 'section#checkout-addresses-step'
-    ADDRESS_DELIVERY_INPUT = 'input[name="id_address_delivery"]'
+    ADDRESS_DELIVERY_DIV = 'article#id_address_delivery-address-7'
 
     # Shipping information form labels
     CLICK_COLLECT_SPAN = 'label[for="delivery_option_1"] span.h6.carrier-name'
