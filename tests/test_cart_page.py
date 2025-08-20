@@ -259,6 +259,22 @@ def test_payment_info_form_is_visible_with_text(home_page, first_product_page, c
     locators_and_texts = get_payment_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
 
+def test_order_first_product_is_working(home_page, first_product_page, cart_page):
+    
+    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
+    home_page.first_product_link.first.click()
+    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
+    first_product_page.add_to_cart_button.click()
+    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
+    first_product_page.checkout_link.click()
+    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
+    cart_page.proceed_to_checkout_link.click()
+    cart_page.submit_personal_info_form_with_valid_data()
+    cart_page.submit_address_form_with_valid_data()
+    cart_page.submit_shipping_form()
+    cart_page.submit_payment_form()
+    assert_element_visible_with_text(cart_page.order_confirmed_header, 'Your order is confirmed')
+
 
 
 

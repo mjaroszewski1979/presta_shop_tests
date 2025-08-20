@@ -87,3 +87,10 @@ class CartPageLocators:
     CHECK_LABEL = 'div#payment-option-3-container'
     TERMS_OF_SERVICE_LABEL = 'form#conditions-to-approve'
 
+    # Payment information form inputs
+    CASH_ON_DELIVERY_INPUT = 'input#payment-option-2'
+    TERMS_OF_SERVICE_INPUT = 'input[name="conditions_to_approve[terms-and-conditions]"]'
+    PLACE_ORDER_BUTTON = 'div#payment-confirmation button'
+
+    ORDER_CONFIRMED_HEADER = 'section#content-hook_order_confirmation h3'
+

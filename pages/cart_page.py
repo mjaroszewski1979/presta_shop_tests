@@ -116,6 +116,16 @@ class CartPage(BasePage):
         self.check_label = self.frame.locator(CartPageLocators.CHECK_LABEL)
         self.terms_of_service_label = self.frame.locator(CartPageLocators.TERMS_OF_SERVICE_LABEL)
 
+        # Payment information form inputs
+        self.cash_on_delivery_input = self.frame.locator(CartPageLocators.CASH_ON_DELIVERY_INPUT)
+        self.terms_of_service_input = self.frame.locator(CartPageLocators.TERMS_OF_SERVICE_INPUT)
+        self.place_order_button = self.frame.locator(CartPageLocators.PLACE_ORDER_BUTTON)
+
+        self.order_confirmed_header = self.frame.locator(CartPageLocators.ORDER_CONFIRMED_HEADER)
+
+
+
+
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
 
@@ -185,6 +195,14 @@ class CartPage(BasePage):
 
         self.section_checkout_delivery.wait_for(state="visible", timeout=15000)
         self.delivery_continue_button.click()
+
+    def submit_payment_form(self):
+
+        self.bank_wire_label.wait_for(state="visible", timeout=15000)
+        self.cash_on_delivery_input.check()
+        self.terms_of_service_input.check()
+        self.place_order_button.click()
+
 
 
  
