@@ -69,17 +69,21 @@ class CartPageLocators:
     ADDRESS_CITY_INPUT = 'section.form-fields input#field-city'
     ADDRESS_PHONE_INPUT = 'section.form-fields input#field-phone'
     ADDRESS_INFO_EDIT_SPAN = 'section#checkout-addresses-step span.step-edit.text-muted'
-    FORM_FIELDS_SECTION = 'section.form-fields'
+    SECTION_CHECKOUT_ADDRESS = 'section#checkout-addresses-step'
 
     # Shipping information form labels
     CLICK_COLLECT_SPAN = 'label[for="delivery_option_1"] span.h6.carrier-name'
     MY_CARRIER_SPAN = 'label[for="delivery_option_2"] span.h6.carrier-name'
     DELIVERY_MESSAGE_LABEL = 'label[for="delivery_message"]'
     DELIVERY_CONTINUE_BUTTON = 'button[name="confirmDeliveryOption"]'
+    SECTION_CHECKOUT_DELIVERY = 'section#checkout-delivery-step'
 
     # Shipping information form inputs
     MY_CARRIER_INPUT = 'input#delivery_option_2'
 
     # Payment information form labels
-    BANK_WIRE_LABEL = 'label[for="payment-option-1"] span'
+    BANK_WIRE_LABEL = 'div#payment-option-1-container'
+    CASH_ON_DELIVERY_LABEL = 'div#payment-option-2-container'
+    CHECK_LABEL = 'div#payment-option-3-container'
+    TERMS_OF_SERVICE_LABEL = 'form#conditions-to-approve'
 

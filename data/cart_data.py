@@ -75,3 +75,12 @@ def get_delivery_form_data(cart_page):
         (cart_page.delivery_message_label, "If you would like to add a comment about your order, please write it in the field below."),
         (cart_page.delivery_continue_button, "Continue"),
     ]
+
+def get_payment_form_data(cart_page):
+
+    return [
+        (cart_page.bank_wire_label, "Pay by bank wire"),
+        (cart_page.cash_on_delivery_label, "Pay by Cash on Delivery"),
+        (cart_page.check_label, "Pay by Check"),
+        (cart_page.terms_of_service_label, "I agree to the terms of service and will adhere to them unconditionally."),
+    ]

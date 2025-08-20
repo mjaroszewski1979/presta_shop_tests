@@ -89,7 +89,7 @@ class CartPage(BasePage):
         self.same_address_label = self.frame.locator(CartPageLocators.SAME_ADDRESS_LABEL)
         self.address_continue_button = self.frame.locator(CartPageLocators.ADDRESS_CONTINUE_BUTTON)
         self.address_info_edit_span = self.frame.locator(CartPageLocators.ADDRESS_INFO_EDIT_SPAN)
-        self.form_fields_section = self.frame.locator(CartPageLocators.FORM_FIELDS_SECTION)
+        self.section_checkout_address = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_ADDRESS)
 
         # Address information form inputs
         self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
@@ -104,12 +104,17 @@ class CartPage(BasePage):
         self.my_carrier_span = self.frame.locator(CartPageLocators.MY_CARRIER_SPAN)
         self.delivery_message_label = self.frame.locator(CartPageLocators.DELIVERY_MESSAGE_LABEL)
         self.delivery_continue_button = self.frame.locator(CartPageLocators.DELIVERY_CONTINUE_BUTTON)
+        self.section_checkout_delivery = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_DELIVERY)
+
 
         # Shipping information form inputs
         self.my_carrier_input = self.frame.locator(CartPageLocators.MY_CARRIER_INPUT)
 
         # Payment information form labels
         self.bank_wire_label = self.frame.locator(CartPageLocators.BANK_WIRE_LABEL)
+        self.cash_on_delivery_label = self.frame.locator(CartPageLocators.CASH_ON_DELIVERY_LABEL)
+        self.check_label = self.frame.locator(CartPageLocators.CHECK_LABEL)
+        self.terms_of_service_label = self.frame.locator(CartPageLocators.TERMS_OF_SERVICE_LABEL)
 
         # Continue button for progressing through checkout steps
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
@@ -160,7 +165,7 @@ class CartPage(BasePage):
         city = generate_city_name()
         phone = generate_phone_number()
 
-        self.address_continue_button.wait_for(state="visible", timeout=15000)
+        self.section_checkout_address.wait_for(state="visible", timeout=15000)
         
         self.address_company_input.fill('')
         self.address_company_input.type(company, delay=100)
@@ -178,8 +183,7 @@ class CartPage(BasePage):
 
     def submit_shipping_form(self):
 
-        self.my_carrier_input.wait_for(state="visible", timeout=15000)
-        self.my_carrier_input.check()
+        self.section_checkout_delivery.wait_for(state="visible", timeout=15000)
         self.delivery_continue_button.click()
 
 
