@@ -44,7 +44,8 @@ class CartPageLocators:
     NEWSLETTER_CHECKBOX = 'input[name="newsletter"]'
     CUSTOMER_PRIVACY_CHECKBOX = 'input[name="customer_privacy"]'
     PERSONAL_INFO_CONTINUE_BUTTON = 'button[data-link-action="register-new-customer"]'
-    PERSONAL_INFO_EDIT_SPAN = 'section#checkout-personal-information-step'
+    PERSONAL_INFO_SECTION = 'section#checkout-personal-information-step'
+    PERSONAL_INFO_EDIT_SPAN = 'section#checkout-personal-information-step span.step-edit'
 
     # Address information form labels
     ADDRESS_FIRST_NAME_LABEL = 'section.form-fields label[for="field-firstname"]'

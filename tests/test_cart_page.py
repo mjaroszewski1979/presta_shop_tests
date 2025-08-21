@@ -54,12 +54,7 @@ def test_proceed_to_checkout_link_is_working(home_page, first_product_page, cart
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
     cart_page.proceed_to_checkout_link.click()
     assert_element_visible_with_text(cart_page.personal_info_header, 'Personal Information')
@@ -82,14 +77,7 @@ def test_checkout_with_sign_in_option_is_working(home_page, first_product_page, 
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.sign_in_link.wait_for(state="visible", timeout=10000)
     cart_page.sign_in_link.click()
     locators_and_texts = get_sign_in_form_data(cart_page)
@@ -112,14 +100,7 @@ def test_personal_info_form_is_visible_with_text(home_page, first_product_page, 
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     locators_and_texts = get_personal_info_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
 
@@ -141,30 +122,16 @@ def test_submitting_personal_info_form_with_valid_data_is_working(home_page, fir
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    assert_element_visible_with_text(cart_page.personal_info_edit_span, 'Edit')
+    assert_element_visible_with_text(cart_page.personal_info_section, 'Edit')
 
 def test_submitting_and_editing_personal_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
 
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.personal_info_edit_span.wait_for(state="visible", timeout=10000)
-    cart_page.personal_info_edit_span.click()
+    cart_page.personal_info_section.wait_for(state="visible", timeout=10000)
+    cart_page.personal_info_section.click()
     expect(cart_page.first_name_input).to_have_value(cart_page.first_name)
 
 def test_address_form_is_visible_with_text(home_page, first_product_page, cart_page):
@@ -185,14 +152,7 @@ def test_address_form_is_visible_with_text(home_page, first_product_page, cart_p
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     locators_and_texts = get_address_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
@@ -215,28 +175,14 @@ def test_submitting_address_info_form_with_valid_data_is_working(home_page, firs
         first_product_page: Page Object for the first product's details page.
         cart_page: Page Object for the cart and checkout process.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     assert_element_visible_with_text(cart_page.delivery_continue_button, 'Continue')
 
 def test_submitting_and_editing_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
 
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     cart_page.section_checkout_address.wait_for(state="visible", timeout=10000)
@@ -245,14 +191,7 @@ def test_submitting_and_editing_address_info_form_with_valid_data_is_working(hom
 
 def test_delivery_info_form_is_visible_with_text(home_page, first_product_page, cart_page):
 
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     locators_and_texts = get_delivery_form_data(cart_page)
@@ -260,14 +199,7 @@ def test_delivery_info_form_is_visible_with_text(home_page, first_product_page, 
 
 def test_delivery_info_form_is_working(home_page, first_product_page, cart_page):
     
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     cart_page.submit_shipping_form()
@@ -275,14 +207,7 @@ def test_delivery_info_form_is_working(home_page, first_product_page, cart_page)
 
 def test_payment_info_form_is_visible_with_text(home_page, first_product_page, cart_page):
     
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     cart_page.submit_shipping_form()
@@ -292,14 +217,7 @@ def test_payment_info_form_is_visible_with_text(home_page, first_product_page, c
 
 def test_order_first_product_is_working(home_page, first_product_page, cart_page):
     
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.checkout_link.wait_for(state="visible", timeout=10000)
-    first_product_page.checkout_link.click()
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
+    cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
     cart_page.submit_address_form_with_valid_data()
     cart_page.submit_shipping_form()

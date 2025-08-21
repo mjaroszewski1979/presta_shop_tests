@@ -61,6 +61,7 @@ class CartPage(BasePage):
         self.password_label = self.frame.locator(CartPageLocators.PASSWORD_LABEL)
         self.birthday_label = self.frame.locator(CartPageLocators.BIRTHDAY_LABEL)
         self.checkbox_labels = self.frame.locator(CartPageLocators.CHECKBOX_LABELS)
+        self.personal_info_section = self.frame.locator(CartPageLocators.PERSONAL_INFO_SECTION)
         self.personal_info_edit_span = self.frame.locator(CartPageLocators.PERSONAL_INFO_EDIT_SPAN)
         self.personal_info_continue_button = self.frame.locator(CartPageLocators.PERSONAL_INFO_CONTINUE_BUTTON)
 
@@ -146,19 +147,18 @@ class CartPage(BasePage):
         password = generate_password()
         birthday = generate_birthdate()
 
-        self.social_title_checkbox_male.wait_for(state="visible", timeout=5000)
         self.social_title_checkbox_male.check()
 
         self.first_name_input.fill('')
-        self.first_name_input.type(self.first_name, delay=100)
+        self.first_name_input.type(self.first_name)
         self.last_name_input.fill('')
-        self.last_name_input.type(last_name, delay=100)
+        self.last_name_input.type(last_name)
         self.email_input.first.fill('')
-        self.email_input.first.type(email, delay=100)
+        self.email_input.first.type(email)
         self.password_input.first.fill('')
-        self.password_input.first.type(password, delay=100)
+        self.password_input.first.type(password)
         self.birthday_input.fill('')
-        self.birthday_input.type(birthday, delay=100)
+        self.birthday_input.type(birthday)
         self.receive_offers_checkbox.check() 
         self.terms_conditions_checkbox.check() 
         self.newsletter_checkbox.check() 
@@ -203,6 +203,13 @@ class CartPage(BasePage):
         self.cash_on_delivery_input.check()
         self.terms_of_service_input.check()
         self.place_order_button.click()
+    
+    def first_product_proceed_to_checkout(self, home_page, first_product_page):
+
+        home_page.first_product_link.first.click()
+        first_product_page.add_to_cart_button.click()
+        first_product_page.checkout_link.click()
+        self.proceed_to_checkout_link.click()
 
 
 
