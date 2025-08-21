@@ -95,6 +95,7 @@ class CartPage(BasePage):
         self.section_checkout_address = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_ADDRESS)
 
         # Address information form inputs
+        self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
         self.address_vat_input = self.frame.locator(CartPageLocators.ADDRESS_VAT_INPUT)
         self.address_input = self.frame.locator(CartPageLocators.ADDRESS_INPUT)
         self.address_postcode_input = self.frame.locator(CartPageLocators.ADDRESS_POSTCODE_INPUT)
@@ -165,31 +166,48 @@ class CartPage(BasePage):
         self.customer_privacy_checkbox.check()
         self.personal_info_continue_button.click()
 
-    def submit_address_form_with_valid_data(self):
+    def fill_non_optional_address_form_with_valid_data(self):
         """
         Fill and submit the address information form with randomly 
         generated valid test data. 
         Includes company details, VAT number, street address, postcode, 
         city, and phone number.
         """
-        vat = generate_vat_number()
         address = generate_street_address()
         postcode = generate_postal_code()
         self.city = generate_city_name()
-        phone = generate_phone_number()
 
         self.section_checkout_address.wait_for(state="visible", timeout=15000)
-        
-        self.address_vat_input.fill('')
-        self.address_vat_input.type(vat, delay=100)
+
         self.address_input.fill('')
-        self.address_input.type(address, delay=100)
+        self.address_input.type(address)
         self.address_postcode_input.fill('')
-        self.address_postcode_input.type(postcode, delay=100)
+        self.address_postcode_input.type(postcode)
         self.address_city_input.fill('')
-        self.address_city_input.type(self.city, delay=100)
+        self.address_city_input.type(self.city)
+
+    def fill_full_address_form_with_valid_data(self):
+        """
+        Fill and submit the address information form with randomly 
+        generated valid test data. 
+        Includes company details, VAT number, street address, postcode, 
+        city, and phone number.
+        """
+        company = generate_company_name()
+        vat = generate_vat_number()
+        phone = generate_phone_number()
+
+        self.fill_non_optional_address_form_with_valid_data()   
+        self.address_company_input.fill('')
+        self.address_company_input.type(company)
+        self.address_vat_input.fill('')
+        self.address_vat_input.type(vat)
         self.address_phone_input.fill('')
-        self.address_phone_input.type(phone, delay=100)
+        self.address_phone_input.type(phone)
+
+
+    def submit_address_form(self):
+
         self.address_continue_button.click()
 
     def submit_shipping_form(self):
@@ -204,10 +222,14 @@ class CartPage(BasePage):
         self.terms_of_service_input.check()
         self.place_order_button.click()
     
-    def first_product_proceed_to_checkout(self, home_page, first_product_page):
+    def first_product_add_to_cart(self, home_page, first_product_page):
 
         home_page.first_product_link.first.click()
         first_product_page.add_to_cart_button.click()
+
+    def first_product_proceed_to_checkout(self, home_page, first_product_page):
+
+        self.first_product_add_to_cart(home_page, first_product_page)
         first_product_page.checkout_link.click()
         self.proceed_to_checkout_link.click()
 

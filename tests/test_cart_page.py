@@ -27,14 +27,9 @@ def test_removing_product_from_cart_is_working(home_page, first_product_page, ca
         first_product_page: Page Object for the first product details page.
         cart_page: Page Object for the cart page.
     """
-    home_page.first_product_link.first.wait_for(state="visible", timeout=10000)
-    home_page.first_product_link.first.click()
-    first_product_page.add_to_cart_button.wait_for(state="visible", timeout=10000)
-    first_product_page.add_to_cart_button.click()
-    first_product_page.continue_shopping_button.wait_for(state="visible", timeout=10000)
+    cart_page.first_product_add_to_cart(home_page, first_product_page)
     first_product_page.continue_shopping_button.click()
     home_page.cart_span.click()
-    cart_page.remove_from_cart_link.wait_for(state="visible", timeout=10000)
     cart_page.remove_from_cart_link.click()
     assert_element_visible_with_text(cart_page.items_info_span, 'There are no more items in your cart')
 
@@ -55,8 +50,6 @@ def test_proceed_to_checkout_link_is_working(home_page, first_product_page, cart
         cart_page: Page Object for the cart and checkout process.
     """
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
-    cart_page.proceed_to_checkout_link.wait_for(state="visible", timeout=10000)
-    cart_page.proceed_to_checkout_link.click()
     assert_element_visible_with_text(cart_page.personal_info_header, 'Personal Information')
 
 def test_checkout_with_sign_in_option_is_working(home_page, first_product_page, cart_page):
@@ -78,7 +71,6 @@ def test_checkout_with_sign_in_option_is_working(home_page, first_product_page, 
         cart_page: Page Object for the cart and checkout process.
     """
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
-    cart_page.sign_in_link.wait_for(state="visible", timeout=10000)
     cart_page.sign_in_link.click()
     locators_and_texts = get_sign_in_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
@@ -130,7 +122,6 @@ def test_submitting_and_editing_personal_info_form_with_valid_data_is_working(ho
 
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.personal_info_section.wait_for(state="visible", timeout=10000)
     cart_page.personal_info_section.click()
     expect(cart_page.first_name_input).to_have_value(cart_page.first_name)
 
@@ -157,7 +148,7 @@ def test_address_form_is_visible_with_text(home_page, first_product_page, cart_p
     locators_and_texts = get_address_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
 
-def test_submitting_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
+def test_submitting_non_optional_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
     """
     UI Test: Verify that the address information form can be successfully submitted with valid data.
 
@@ -177,7 +168,8 @@ def test_submitting_address_info_form_with_valid_data_is_working(home_page, firs
     """
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.submit_address_form_with_valid_data()
+    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.submit_address_form()
     assert_element_visible_with_text(cart_page.delivery_continue_button, 'Continue')
 
 def test_submitting_and_editing_address_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
