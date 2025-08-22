@@ -10,19 +10,7 @@ from locators.cart_page_locators import CartPageLocators
 from models.user_data import UserData
 
 # Import utility functions for generating realistic test data (e.g., user details).
-from utils.home_page_utils import (
-    generate_unique_email, 
-    generate_password, 
-    generate_first_name, 
-    generate_last_name, 
-    generate_birthdate,
-    generate_company_name,
-    generate_vat_number,
-    generate_postal_code,
-    generate_street_address,
-    generate_city_name,
-    generate_phone_number,
-    type_text_into_input_field)
+from utils.home_page_utils import type_text_into_input_field
 
 class CartPage(BasePage):
     """
@@ -176,25 +164,22 @@ class CartPage(BasePage):
                 - True → fill all fields, including optional ones.
         """
         # Required fields
-        address = generate_street_address()
-        postcode = generate_postal_code()
-        self.city = generate_city_name()
+        user = UserData.generate_valid()
 
         self.section_checkout_address.wait_for(state="visible", timeout=15000)
 
-        type_text_into_input_field(self.address_input, address)
-        type_text_into_input_field(self.address_postcode_input, postcode)
-        type_text_into_input_field(self.address_city_input, self.city)
+        type_text_into_input_field(self.address_input, user.address)
+        type_text_into_input_field(self.address_postcode_input, user.postcode)
+        type_text_into_input_field(self.address_city_input, user.city)
 
         # Optional fields
         if include_optional:
-            company = generate_company_name()
-            vat = generate_vat_number()
-            phone = generate_phone_number()
 
-            type_text_into_input_field(self.address_company_input, company)  
-            type_text_into_input_field(self.address_vat_input, vat)  
-            type_text_into_input_field(self.address_phone_input, phone)
+            type_text_into_input_field(self.address_company_input, user.company)  
+            type_text_into_input_field(self.address_vat_input, user.vat)  
+            type_text_into_input_field(self.address_phone_input, user.phone)
+
+        return user
 
 
 

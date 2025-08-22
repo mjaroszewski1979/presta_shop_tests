@@ -197,11 +197,11 @@ def test_submitting_and_editing_non_optional_address_info_form_with_valid_data_i
 
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_address_form_with_valid_data()
+    user = cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     cart_page.section_checkout_address.wait_for(state="visible", timeout=10000)
     cart_page.section_checkout_address.click()
-    expect(cart_page.address_delivery_div).to_contain_text(cart_page.city)
+    expect(cart_page.address_delivery_div).to_contain_text(user.city)
 
 def test_delivery_info_form_is_visible_with_text(home_page, first_product_page, cart_page):
 
