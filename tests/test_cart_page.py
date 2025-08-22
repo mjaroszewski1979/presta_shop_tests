@@ -7,9 +7,6 @@ from utils.assertions import assert_element_visible_with_text, assert_elements_v
 from data.cart_data import get_sign_in_form_data, get_personal_info_form_data, get_address_form_data, get_delivery_form_data, get_payment_form_data
 
 
-
-
-
 def test_removing_product_from_cart_is_working(home_page, first_product_page, cart_page):
     """
     UI Test: Verify that removing a product from the cart works as expected.

@@ -1,3 +1,5 @@
+import random
+
 # Import the base page object providing reusable browser interaction methods.
 from pages.base_page import BasePage
 
@@ -16,7 +18,8 @@ from utils.home_page_utils import (
     generate_postal_code,
     generate_street_address,
     generate_city_name,
-    generate_phone_number)
+    generate_phone_number,
+    type_text_into_input_field)
 
 class CartPage(BasePage):
     """
@@ -67,6 +70,7 @@ class CartPage(BasePage):
 
         # Personal information form inputs
         self.social_title_checkbox_male = self.frame.locator(CartPageLocators.SOCIAL_TITLE_CHECKBOX_MALE)
+        self.social_title_checkbox_female = self.frame.locator(CartPageLocators.SOCIAL_TITLE_CHECKBOX_FEMALE)
         self.first_name_input = self.frame.locator(CartPageLocators.FIRST_NAME_INPUT)
         self.last_name_input = self.frame.locator(CartPageLocators.LAST_NAME_INPUT)
         self.email_input = self.frame.locator(CartPageLocators.EMAIL_INPUT)
@@ -148,18 +152,13 @@ class CartPage(BasePage):
         password = generate_password()
         birthday = generate_birthdate()
 
-        self.social_title_checkbox_male.check()
+        self.check_gender_checkbox()
 
-        self.first_name_input.fill('')
-        self.first_name_input.type(self.first_name)
-        self.last_name_input.fill('')
-        self.last_name_input.type(last_name)
-        self.email_input.first.fill('')
-        self.email_input.first.type(email)
-        self.password_input.first.fill('')
-        self.password_input.first.type(password)
-        self.birthday_input.fill('')
-        self.birthday_input.type(birthday)
+        type_text_into_input_field(self.first_name_input, self.first_name)
+        type_text_into_input_field(self.last_name_input, last_name)
+        type_text_into_input_field(self.email_input.first, email)
+        type_text_into_input_field(self.password_input.first, password)
+        type_text_into_input_field(self.birthday_input, birthday)
         self.receive_offers_checkbox.check() 
         self.terms_conditions_checkbox.check() 
         self.newsletter_checkbox.check() 
@@ -179,12 +178,10 @@ class CartPage(BasePage):
 
         self.section_checkout_address.wait_for(state="visible", timeout=15000)
 
-        self.address_input.fill('')
-        self.address_input.type(address)
-        self.address_postcode_input.fill('')
-        self.address_postcode_input.type(postcode)
-        self.address_city_input.fill('')
-        self.address_city_input.type(self.city)
+        type_text_into_input_field(self.address_input, address)
+        type_text_into_input_field(self.address_postcode_input, postcode)
+        type_text_into_input_field(self.address_city_input, self.city)
+
 
     def fill_full_address_form_with_valid_data(self):
         """
@@ -197,13 +194,10 @@ class CartPage(BasePage):
         vat = generate_vat_number()
         phone = generate_phone_number()
 
-        self.fill_non_optional_address_form_with_valid_data()   
-        self.address_company_input.fill('')
-        self.address_company_input.type(company)
-        self.address_vat_input.fill('')
-        self.address_vat_input.type(vat)
-        self.address_phone_input.fill('')
-        self.address_phone_input.type(phone)
+        self.fill_non_optional_address_form_with_valid_data() 
+        type_text_into_input_field(self.address_company_input, company)  
+        type_text_into_input_field(self.address_vat_input, vat)  
+        type_text_into_input_field(self.address_phone_input, phone)  
 
 
     def submit_address_form(self):
@@ -232,6 +226,17 @@ class CartPage(BasePage):
         self.first_product_add_to_cart(home_page, first_product_page)
         first_product_page.checkout_link.click()
         self.proceed_to_checkout_link.click()
+
+    def check_gender_checkbox(self):
+
+        choice = random.randint(0, 1)
+        if choice == 0:
+            self.social_title_checkbox_male.check()
+        else:
+            self.social_title_checkbox_female.check()
+
+
+
 
 
 

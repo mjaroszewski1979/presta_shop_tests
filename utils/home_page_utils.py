@@ -111,3 +111,10 @@ def generate_phone_number(digits=10) -> str:
     Generates a fake phone number with a specific number of digits.
     """
     return ''.join(random.choices(string.digits, k=digits))
+
+def type_text_into_input_field(locator, text):
+    locator.wait_for(state="visible", timeout=15000)
+    locator.clear()             
+    locator.type(text)
+
+

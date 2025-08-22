@@ -34,6 +34,7 @@ class CartPageLocators:
 
     # Personal information form inputs
     SOCIAL_TITLE_CHECKBOX_MALE = 'input#field-id_gender-1'
+    SOCIAL_TITLE_CHECKBOX_FEMALE = 'input#field-id_gender-2'
     FIRST_NAME_INPUT = 'input#field-firstname'
     LAST_NAME_INPUT = 'input#field-lastname'
     EMAIL_INPUT = 'input#field-email'
