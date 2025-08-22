@@ -6,6 +6,9 @@ from pages.base_page import BasePage
 # Import all locators related to the Cart Page for element identification.
 from locators.cart_page_locators import CartPageLocators
 
+# Import user data model for generating valid user credentials.
+from models.user_data import UserData
+
 # Import utility functions for generating realistic test data (e.g., user details).
 from utils.home_page_utils import (
     generate_unique_email, 
@@ -81,7 +84,6 @@ class CartPage(BasePage):
         self.newsletter_checkbox = self.frame.locator(CartPageLocators.NEWSLETTER_CHECKBOX)
         self.customer_privacy_checkbox = self.frame.locator(CartPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
 
-        self.first_name = ''
 
         # Address information form labels
         self.address_first_name_label = self.frame.locator(CartPageLocators.ADDRESS_FIRST_NAME_LABEL)
@@ -107,7 +109,6 @@ class CartPage(BasePage):
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
         self.address_delivery_div = self.frame.locator(CartPageLocators.ADDRESS_DELIVERY_DIV)
 
-        self.city = ''
 
         # Shipping information form labels
         self.click_collect_span = self.frame.locator(CartPageLocators.CLICK_COLLECT_SPAN)
@@ -146,24 +147,23 @@ class CartPage(BasePage):
         Includes first name, last name, email, password, and birthday.
         Also checks all required agreement checkboxes before submission.
         """
-        self.first_name= generate_first_name()
-        last_name = generate_last_name()
-        email = generate_unique_email()
-        password = generate_password()
-        birthday = generate_birthdate()
+
+        user = UserData.generate_valid()
 
         self.check_gender_checkbox()
 
-        type_text_into_input_field(self.first_name_input, self.first_name)
-        type_text_into_input_field(self.last_name_input, last_name)
-        type_text_into_input_field(self.email_input.first, email)
-        type_text_into_input_field(self.password_input.first, password)
-        type_text_into_input_field(self.birthday_input, birthday)
+        type_text_into_input_field(self.first_name_input, user.first_name)
+        type_text_into_input_field(self.last_name_input, user.last_name)
+        type_text_into_input_field(self.email_input.first, user.email)
+        type_text_into_input_field(self.password_input.first, user.password)
+        type_text_into_input_field(self.birthday_input, user.birthday)
         self.receive_offers_checkbox.check() 
         self.terms_conditions_checkbox.check() 
         self.newsletter_checkbox.check() 
         self.customer_privacy_checkbox.check()
         self.personal_info_continue_button.click()
+
+        return user
 
 
     def fill_address_form_with_valid_data(self, include_optional: bool = False):

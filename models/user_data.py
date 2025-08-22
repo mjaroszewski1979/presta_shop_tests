@@ -4,6 +4,7 @@ from utils.home_page_utils import (
     generate_first_name,
     generate_last_name,
     generate_password,
+    generate_birthdate
 )
 
 @dataclass
@@ -12,6 +13,7 @@ class UserData:
     last_name: str
     email: str
     password: str
+    birthday: str
 
     @classmethod
     def generate_valid(cls):
@@ -19,5 +21,6 @@ class UserData:
             first_name=generate_first_name(),
             last_name=generate_last_name(),
             email=generate_unique_email(),
-            password=generate_password()
+            password=generate_password(),
+            birthday=generate_birthdate()
         )

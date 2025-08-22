@@ -118,9 +118,9 @@ def test_submitting_personal_info_form_with_valid_data_is_working(home_page, fir
 def test_submitting_and_editing_personal_info_form_with_valid_data_is_working(home_page, first_product_page, cart_page):
 
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
-    cart_page.submit_personal_info_form_with_valid_data()
+    user = cart_page.submit_personal_info_form_with_valid_data()
     cart_page.personal_info_section.click()
-    expect(cart_page.first_name_input).to_have_value(cart_page.first_name)
+    expect(cart_page.first_name_input).to_have_value(user.first_name)
 
 def test_address_form_is_visible_with_text(home_page, first_product_page, cart_page):
     """
