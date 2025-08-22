@@ -165,7 +165,7 @@ def test_submitting_non_optional_address_info_form_with_valid_data_is_working(ho
     """
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     assert_element_visible_with_text(cart_page.delivery_continue_button, 'Continue')
 
@@ -189,7 +189,7 @@ def test_submitting_full_address_info_form_with_valid_data_is_working(home_page,
     """
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_full_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data(include_optional=True)
     cart_page.submit_address_form()
     assert_element_visible_with_text(cart_page.delivery_continue_button, 'Continue')
 
@@ -197,7 +197,7 @@ def test_submitting_and_editing_non_optional_address_info_form_with_valid_data_i
 
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     cart_page.section_checkout_address.wait_for(state="visible", timeout=10000)
     cart_page.section_checkout_address.click()
@@ -207,7 +207,7 @@ def test_delivery_info_form_is_visible_with_text(home_page, first_product_page, 
 
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     locators_and_texts = get_delivery_form_data(cart_page)
     assert_elements_visible_with_texts(locators_and_texts)
@@ -216,7 +216,7 @@ def test_delivery_info_form_is_working(home_page, first_product_page, cart_page)
     
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     cart_page.submit_shipping_form()
     assert_element_visible_with_text(cart_page.bank_wire_label, 'Pay by bank wire')
@@ -225,7 +225,7 @@ def test_payment_info_form_is_visible_with_text(home_page, first_product_page, c
     
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     cart_page.submit_shipping_form()
     cart_page.bank_wire_label.wait_for(state="visible", timeout=15000)
@@ -236,7 +236,7 @@ def test_order_first_product_is_working(home_page, first_product_page, cart_page
     
     cart_page.first_product_proceed_to_checkout(home_page, first_product_page)
     cart_page.submit_personal_info_form_with_valid_data()
-    cart_page.fill_non_optional_address_form_with_valid_data()
+    cart_page.fill_address_form_with_valid_data()
     cart_page.submit_address_form()
     cart_page.submit_shipping_form()
     cart_page.submit_payment_form()

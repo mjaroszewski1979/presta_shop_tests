@@ -165,13 +165,17 @@ class CartPage(BasePage):
         self.customer_privacy_checkbox.check()
         self.personal_info_continue_button.click()
 
-    def fill_non_optional_address_form_with_valid_data(self):
+
+    def fill_address_form_with_valid_data(self, include_optional: bool = False):
         """
-        Fill and submit the address information form with randomly 
-        generated valid test data. 
-        Includes company details, VAT number, street address, postcode, 
-        city, and phone number.
+        Fill the address information form with randomly generated valid test data.
+
+        Args:
+            include_optional (bool): 
+                - False (default) → fill only required fields.
+                - True → fill all fields, including optional ones.
         """
+        # Required fields
         address = generate_street_address()
         postcode = generate_postal_code()
         self.city = generate_city_name()
@@ -182,22 +186,16 @@ class CartPage(BasePage):
         type_text_into_input_field(self.address_postcode_input, postcode)
         type_text_into_input_field(self.address_city_input, self.city)
 
+        # Optional fields
+        if include_optional:
+            company = generate_company_name()
+            vat = generate_vat_number()
+            phone = generate_phone_number()
 
-    def fill_full_address_form_with_valid_data(self):
-        """
-        Fill and submit the address information form with randomly 
-        generated valid test data. 
-        Includes company details, VAT number, street address, postcode, 
-        city, and phone number.
-        """
-        company = generate_company_name()
-        vat = generate_vat_number()
-        phone = generate_phone_number()
+            type_text_into_input_field(self.address_company_input, company)  
+            type_text_into_input_field(self.address_vat_input, vat)  
+            type_text_into_input_field(self.address_phone_input, phone)
 
-        self.fill_non_optional_address_form_with_valid_data() 
-        type_text_into_input_field(self.address_company_input, company)  
-        type_text_into_input_field(self.address_vat_input, vat)  
-        type_text_into_input_field(self.address_phone_input, phone)  
 
 
     def submit_address_form(self):
