@@ -31,23 +31,31 @@ class CartPage(BasePage):
         # Locate iframe containing the cart page content
         self.frame = page.frame_locator("#framelive")
 
+        # -------------------------------
         # Cart management elements
+        # -------------------------------
         self.remove_from_cart_link = self.frame.locator(CartPageLocators.REMOVE_FROM_CART_LINK)
         self.items_info_span = self.frame.locator(CartPageLocators.ITEMS_INFO_SPAN)
 
+        # -------------------------------
         # Checkout process elements
+        # -------------------------------
         self.proceed_to_checkout_link = self.frame.locator(CartPageLocators.PROCEED_TO_CHECKOUT_LINK)
         self.personal_info_header = self.frame.locator(CartPageLocators.PERSONAL_INFO_HEADER)
         self.order_as_guest_link = self.frame.locator(CartPageLocators.ORDER_AS_GUEST_LINK)
         self.sign_in_link = self.frame.locator(CartPageLocators.SIGN_IN_LINK)
 
+        # -------------------------------
         # Sign-in form elements
+        # -------------------------------
         self.form_info_para = self.frame.locator(CartPageLocators.FORM_INFO_PARA)
         self.form_email_label = self.frame.locator(CartPageLocators.FORM_EMAIL_LABEL)
         self.form_password_label = self.frame.locator(CartPageLocators.FORM_PASSWORD_LABEL)
         self.forgot_password_link = self.frame.locator(CartPageLocators.FORGOT_PASSWORD_LINK)
 
+        # -------------------------------
         # Personal information form labels
+        # -------------------------------
         self.social_title_label = self.frame.locator(CartPageLocators.SOCIAL_TITLE_LABEL)
         self.first_name_label = self.frame.locator(CartPageLocators.FIRST_NAME_LABEL)
         self.last_name_label = self.frame.locator(CartPageLocators.LAST_NAME_LABEL)
@@ -59,7 +67,9 @@ class CartPage(BasePage):
         self.personal_info_edit_span = self.frame.locator(CartPageLocators.PERSONAL_INFO_EDIT_SPAN)
         self.personal_info_continue_button = self.frame.locator(CartPageLocators.PERSONAL_INFO_CONTINUE_BUTTON)
 
+        # -------------------------------
         # Personal information form inputs
+        # -------------------------------
         self.social_title_checkbox_male = self.frame.locator(CartPageLocators.SOCIAL_TITLE_CHECKBOX_MALE)
         self.social_title_checkbox_female = self.frame.locator(CartPageLocators.SOCIAL_TITLE_CHECKBOX_FEMALE)
         self.first_name_input = self.frame.locator(CartPageLocators.FIRST_NAME_INPUT)
@@ -73,7 +83,9 @@ class CartPage(BasePage):
         self.customer_privacy_checkbox = self.frame.locator(CartPageLocators.CUSTOMER_PRIVACY_CHECKBOX)
 
 
+        # -------------------------------
         # Address information form labels
+        # -------------------------------
         self.address_first_name_label = self.frame.locator(CartPageLocators.ADDRESS_FIRST_NAME_LABEL)
         self.address_last_name_label = self.frame.locator(CartPageLocators.ADDRESS_LAST_NAME_LABEL)
         self.address_company_label = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_LABEL)
@@ -88,7 +100,9 @@ class CartPage(BasePage):
         self.address_info_edit_span = self.frame.locator(CartPageLocators.ADDRESS_INFO_EDIT_SPAN)
         self.section_checkout_address = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_ADDRESS)
 
+        # -------------------------------
         # Address information form inputs
+        # -------------------------------
         self.address_company_input = self.frame.locator(CartPageLocators.ADDRESS_COMPANY_INPUT)
         self.address_vat_input = self.frame.locator(CartPageLocators.ADDRESS_VAT_INPUT)
         self.address_input = self.frame.locator(CartPageLocators.ADDRESS_INPUT)
@@ -97,37 +111,48 @@ class CartPage(BasePage):
         self.address_phone_input = self.frame.locator(CartPageLocators.ADDRESS_PHONE_INPUT)
         self.address_delivery_div = self.frame.locator(CartPageLocators.ADDRESS_DELIVERY_DIV)
 
-
+        # -------------------------------
         # Shipping information form labels
+        # -------------------------------
         self.click_collect_span = self.frame.locator(CartPageLocators.CLICK_COLLECT_SPAN)
         self.my_carrier_span = self.frame.locator(CartPageLocators.MY_CARRIER_SPAN)
         self.delivery_message_label = self.frame.locator(CartPageLocators.DELIVERY_MESSAGE_LABEL)
         self.delivery_continue_button = self.frame.locator(CartPageLocators.DELIVERY_CONTINUE_BUTTON)
         self.section_checkout_delivery = self.frame.locator(CartPageLocators.SECTION_CHECKOUT_DELIVERY)
 
-
+        # -------------------------------
         # Shipping information form inputs
+        # -------------------------------
         self.my_carrier_input = self.frame.locator(CartPageLocators.MY_CARRIER_INPUT)
 
+        # -------------------------------
         # Payment information form labels
+        # -------------------------------
         self.bank_wire_label = self.frame.locator(CartPageLocators.BANK_WIRE_LABEL)
         self.cash_on_delivery_label = self.frame.locator(CartPageLocators.CASH_ON_DELIVERY_LABEL)
         self.check_label = self.frame.locator(CartPageLocators.CHECK_LABEL)
         self.terms_of_service_label = self.frame.locator(CartPageLocators.TERMS_OF_SERVICE_LABEL)
 
+        # -------------------------------
         # Payment information form inputs
+        # -------------------------------
         self.cash_on_delivery_input = self.frame.locator(CartPageLocators.CASH_ON_DELIVERY_INPUT)
         self.terms_of_service_input = self.frame.locator(CartPageLocators.TERMS_OF_SERVICE_INPUT)
         self.place_order_button = self.frame.locator(CartPageLocators.PLACE_ORDER_BUTTON)
 
+        # -------------------------------
+        # Order confirmation elements
+        # -------------------------------
         self.order_confirmed_header = self.frame.locator(CartPageLocators.ORDER_CONFIRMED_HEADER)
 
-
-
-
-        # Continue button for progressing through checkout steps
+        # -------------------------------
+        # Shared navigation element
+        # -------------------------------
         self.continue_button = self.frame.locator(CartPageLocators.CONTINUE_BUTTON)
 
+    # -------------------------------
+    # Form submission methods
+    # -------------------------------
     def submit_personal_info_form_with_valid_data(self):
         """
         Fill and submit the personal information form using randomly 
@@ -152,7 +177,6 @@ class CartPage(BasePage):
         self.personal_info_continue_button.click()
 
         return user
-
 
     def fill_address_form_with_valid_data(self, include_optional: bool = False):
         """
@@ -184,34 +208,41 @@ class CartPage(BasePage):
 
 
     def submit_address_form(self):
-
+        """Click the continue button to submit the address form and move to the next step."""
         self.address_continue_button.click()
 
     def submit_shipping_form(self):
-
+        """Wait for the shipping section and submit the shipping form by clicking continue."""
         self.section_checkout_delivery.wait_for(state="visible", timeout=15000)
         self.delivery_continue_button.click()
 
     def submit_payment_form(self):
-
+        """Wait for payment options, select payment and terms, and confirm order placement."""
         self.bank_wire_label.wait_for(state="visible", timeout=15000)
         self.cash_on_delivery_input.check()
         self.terms_of_service_input.check()
         self.place_order_button.click()
+
+    # -------------------------------
+    # Helper methods for product checkout
+    # -------------------------------
     
     def first_product_add_to_cart(self, home_page, first_product_page):
-
+        """Add the first available product from the home page into the shopping cart."""
         home_page.first_product_link.first.click()
         first_product_page.add_to_cart_button.click()
 
     def first_product_proceed_to_checkout(self, home_page, first_product_page):
-
+        """Add first product and immediately proceed through initial checkout step."""
         self.first_product_add_to_cart(home_page, first_product_page)
         first_product_page.checkout_link.click()
         self.proceed_to_checkout_link.click()
 
+    # -------------------------------
+    # Utility methods
+    # -------------------------------
     def check_gender_checkbox(self):
-
+        """Randomly select and check either 'male' or 'female' gender option."""
         choice = random.randint(0, 1)
         if choice == 0:
             self.social_title_checkbox_male.check()
