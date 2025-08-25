@@ -23,7 +23,6 @@ def test_contact_form_is_working_with_valid_data(home_page, contact_page):
     """
     Validates that the 'Contact Us' form is working with correct data supplied
     """
-    home_page.contact_link.wait_for(state="visible", timeout=5000)
     home_page.contact_link.click()
     contact_page.submit_contact_form_with_valid_data()
     assert_element_visible_with_text(contact_page.success_message_li, 'Your message has been successfully sent to our team.')
