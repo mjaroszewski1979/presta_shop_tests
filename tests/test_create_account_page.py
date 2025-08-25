@@ -27,9 +27,7 @@ def test_create_account_form_is_visible_with_text(home_page, sign_page, create_a
         sign_page: Page Object for the sign-in page.
         create_account_page: Page Object for the create account page.
     """
-    home_page.sign_in_span.wait_for(state="visible", timeout=5000)
     home_page.sign_in_span.click()
-    sign_page.create_account_link.wait_for(state="visible", timeout=5000)
     sign_page.create_account_link.click()
     locators_and_texts = get_create_account_label_data(create_account_page)
     assert_elements_visible_with_texts(locators_and_texts)

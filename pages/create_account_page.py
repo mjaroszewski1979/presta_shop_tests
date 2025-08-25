@@ -1,11 +1,7 @@
 from pages.base_page import BasePage
 from locators.create_account_page_locators import CreateAccountPageLocators
-from utils.home_page_utils import (
-    generate_unique_email,
-    generate_first_name,
-    generate_last_name,
-    generate_password,
-)
+# Import utility functions for generating realistic test data (e.g., user details).
+from utils.home_page_utils import type_text_into_input_field
 
 class CreateAccountPage(BasePage):
     """
@@ -41,25 +37,12 @@ class CreateAccountPage(BasePage):
         self.gender_male_radio.wait_for(state="visible", timeout=5000)
         self.gender_male_radio.check()
 
-        # Fill out the first name input with simulated typing delay
-        self.first_name_input.fill('')
-        self.first_name_input.type(user_data.first_name, delay=100)
+        type_text_into_input_field(self.first_name_input, user_data.first_name)
+        type_text_into_input_field(self.last_name_input, user_data.last_name)
+        type_text_into_input_field(self.email_input, user_data.email)
+        type_text_into_input_field(self.password_input, user_data.password)
 
-        # Fill out the last name input with simulated typing delay
-        self.last_name_input.fill('')
-        self.last_name_input.type(user_data.last_name, delay=100)
-
-        # Fill out the email input with simulated typing delay
-        self.email_input.fill('')
-        self.email_input.type(user_data.email, delay=100)
-
-        # Fill out the password input with simulated typing delay
-        self.password_input.fill('')
-        self.password_input.type(user_data.password, delay=100)
-
-        # Check the required checkboxes for terms acceptance and privacy
         self.terms_and_conditions_checkbox.check()
         self.customer_privacy_checkbox.check()
 
-        # Click the button to submit the form
         self.save_form_button.click()
