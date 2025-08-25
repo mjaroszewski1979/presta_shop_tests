@@ -76,10 +76,10 @@ class HomePage(BasePage):
         Ensures the page is fully loaded before any interaction.
         """
         self.visit("https://demo.prestashop.com/#/en/front") 
-        self.frame.locator(HomePageLocators.CONTACT_LINK).wait_for(state="visible")
-        self.frame.locator(HomePageLocators.MY_STORE_IMG).wait_for(state="visible")
-        self.frame.locator(HomePageLocators.CLOTHES_LINK).wait_for(state="visible")
-        self.frame.locator(HomePageLocators.LANGUAGE_DROPDOWN_BUTTON).wait_for(state="visible")
+        self.contact_link.wait_for(state="visible")
+        self.my_store_img.wait_for(state="visible")
+        self.clothes_link.wait_for(state="visible")
+        self.language_dropdown_button.wait_for(state="visible")
 
     def get_footer_submenu_texts(self, submenu_locator):
         """
