@@ -1,7 +1,8 @@
 from pages.base_page import BasePage
 from locators.home_page_locators import HomePageLocators
 # Import utility functions for generating realistic test data (e.g., user details).
-from utils.home_page_utils import type_text_into_input_field
+from utils.home_page_utils import type_text_into_input_field, generate_unique_email
+
 
 class HomePage(BasePage):
     """
@@ -110,6 +111,14 @@ class HomePage(BasePage):
         type_text_into_input_field(self.search_catalog_input, 'Hummingbird')
         self.search_catalog_input.click()
         self.search_catalog_input.press("Enter")
+
+    def submit_subscribe_form_with_valid_data(self):
+
+        email = generate_unique_email()
+
+        type_text_into_input_field(self.subscribe_input, email)
+        self.subscribe_button.click()
+
 
 
 

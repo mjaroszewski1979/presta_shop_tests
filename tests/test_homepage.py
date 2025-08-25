@@ -4,7 +4,7 @@ from playwright.sync_api import expect
 
 # Import test data and helper function
 from data.home_page_data import FOOTER_SECTIONS
-from utils.home_page_utils import generate_unique_email
+
 
 def test_homepage_title(home_page):
     """
@@ -231,12 +231,7 @@ def test_subscribe_with_valid_email_works(home_page):
     """
     Test newsletter subscription flow with a generated valid email.
     """
-    email = generate_unique_email()
-    home_page.subscribe_input.wait_for(state="visible", timeout=10000)
-    home_page.subscribe_input.fill('')
-    home_page.subscribe_input.type(email, delay=100)
-    home_page.subscribe_button.click()
-    home_page.subscribe_info_para.wait_for(state="visible", timeout=10000)
+    home_page.submit_subscribe_form_with_valid_data()
     expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
 
 
