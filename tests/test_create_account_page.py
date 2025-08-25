@@ -49,9 +49,7 @@ def test_create_account_form_is_working_with_valid_data(home_page, sign_page, cr
         create_account_page: Page Object for the create account page.
     """
     user = UserData.generate_valid()
-    home_page.sign_in_span.wait_for(state="visible", timeout=5000)
     home_page.sign_in_span.click()
-    sign_page.create_account_link.wait_for(state="visible", timeout=5000)
     sign_page.create_account_link.click()
     create_account_page.submit_create_account_form_with_valid_data(user)
     expect(home_page.sign_out_link).to_be_visible()
