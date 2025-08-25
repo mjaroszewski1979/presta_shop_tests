@@ -47,5 +47,4 @@ class FirstProductPage(BasePage):
         
 
     def select_size_option(self, size):
-        self.size_select.wait_for(state="visible", timeout=5000)
         self.size_select.select_option(size)
