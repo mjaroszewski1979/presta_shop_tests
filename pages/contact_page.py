@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from locators.contact_page_locators import ContactPageLocators
 from utils.home_page_utils import generate_unique_email, generate_random_message
 
+# Import utility functions for generating realistic test data (e.g., user details).
+from utils.home_page_utils import type_text_into_input_field
+
 class ContactPage(BasePage):
     """
     Page Object Model for the Contact page.
@@ -30,10 +33,8 @@ class ContactPage(BasePage):
         message_text = generate_random_message()
         self.subject_select.wait_for(state="visible", timeout=5000)
         self.subject_select.select_option(value="1")
-        self.email_input.fill('')
-        self.email_input.type(email, delay=100)
-        self.message_textarea.fill('')
-        self.message_textarea.type(message_text, delay=100)
+        type_text_into_input_field(self.email_input, email)
+        type_text_into_input_field(self.message_textarea, message_text)
         self.send_button.click()
 
 
