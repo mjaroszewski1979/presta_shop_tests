@@ -1,5 +1,7 @@
 from pages.base_page import BasePage
 from locators.home_page_locators import HomePageLocators
+# Import utility functions for generating realistic test data (e.g., user details).
+from utils.home_page_utils import type_text_into_input_field
 
 class HomePage(BasePage):
     """
@@ -101,6 +103,14 @@ class HomePage(BasePage):
             str: The inner text of the store info block.
         """
         return self.footer_store_info_submenu_items.inner_text()
+    
+
+    def submit_search_catalog_form_with_valid_data(self):
+
+        type_text_into_input_field(self.search_catalog_input, 'Hummingbird')
+        self.search_catalog_input.click()
+        self.search_catalog_input.press("Enter")
+
 
 
     

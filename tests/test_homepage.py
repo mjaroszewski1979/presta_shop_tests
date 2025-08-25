@@ -1,6 +1,7 @@
 # Import Playwright assertions
 from playwright.sync_api import expect
 
+
 # Import test data and helper function
 from data.home_page_data import FOOTER_SECTIONS
 from utils.home_page_utils import generate_unique_email
@@ -73,7 +74,6 @@ def test_clothes_men_link_is_visible_with_text(home_page):
     Verify that the 'Men' subcategory under 'Clothes' is visible and labeled correctly.
     """
     home_page.clothes_link.hover()
-    #home_page.clothes_men_link.wait_for(state="visible", timeout=10000)
     expect(home_page.clothes_men_link).to_contain_text("Men")
 
 def test_clothes_women_link_is_visible_with_text(home_page):
@@ -81,7 +81,6 @@ def test_clothes_women_link_is_visible_with_text(home_page):
     Verify that the 'Women' subcategory under 'Clothes' is visible and labeled correctly.
     """
     home_page.clothes_link.hover()
-    #home_page.clothes_women_link.wait_for(state="visible", timeout=10000)
     expect(home_page.clothes_women_link).to_contain_text("Women")
 
 def test_accessories_link_is_visible_with_text(home_page):
@@ -102,7 +101,6 @@ def test_accessories_stationery_link_is_visible_with_text(home_page):
     Verify that 'Stationery' submenu under Accessories is visible.
     """
     home_page.accessories_link.hover()
-    #home_page.accessories_stationery_link.wait_for(state="visible", timeout=10000)
     expect(home_page.accessories_stationery_link).to_contain_text("Stationery")
 
 def test_accessories_home_link_is_visible_with_text(home_page):
@@ -110,7 +108,6 @@ def test_accessories_home_link_is_visible_with_text(home_page):
     Verify that 'Home Accessories' submenu under Accessories is visible.
     """
     home_page.accessories_link.hover()
-    #home_page.accessories_home_link.wait_for(state="visible", timeout=10000)
     expect(home_page.accessories_home_link).to_contain_text("Home Accessories")
 
 def test_art_link_is_visible_with_text(home_page):
@@ -161,16 +158,11 @@ def test_carousel_second_slide_text(home_page):
     second_heading = home_page.carousel_headings.nth(1)
     expect(second_heading).to_have_text("Sample 2")
 
-def test_search_catalog_input(home_page, search_page):
+def test_search_catalog_form_is_working_with_valid_data(home_page, search_page):
     """
     Test the search functionality with the keyword 'Hummingbird'.
     """
-    home_page.search_catalog_input.wait_for(state="visible", timeout=5000)
-    home_page.search_catalog_input.fill('')
-    home_page.search_catalog_input.type('Hummingbird', delay=100)
-    home_page.search_catalog_input.click()
-    home_page.search_catalog_input.press("Enter")
-    search_page.total_products_para.wait_for(state="visible", timeout=5000)
+    home_page.submit_search_catalog_form_with_valid_data()
     expect(search_page.total_products_para).to_contain_text('There are 5 products.')
 
 def test_language_select(home_page):
