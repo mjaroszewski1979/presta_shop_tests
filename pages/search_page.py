@@ -21,11 +21,6 @@ class SearchPage(BasePage):
         super().__init__(page)
 
         # -------------------------------
-        # Locate iframe containing search results content
-        # -------------------------------
-        self.frame = page.frame_locator("#framelive")
-
-        # -------------------------------
         # Search results summary elements
         # -------------------------------
         self.total_products_para = self.frame.locator(SearchPageLocators.TOTAL_PRODUCTS_PARA)

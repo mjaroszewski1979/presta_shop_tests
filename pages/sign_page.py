@@ -21,11 +21,6 @@ class SignPage(BasePage):
         super().__init__(page)
 
         # -------------------------------
-        # Locate iframe containing sign-in form content
-        # -------------------------------
-        self.frame = page.frame_locator("#framelive")
-
-        # -------------------------------
         # Authentication form elements
         # -------------------------------
         self.sign_in_button = self.frame.locator(SignPageLocators.SIGN_IN_BUTTON)

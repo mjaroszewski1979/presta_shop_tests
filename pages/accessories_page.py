@@ -21,11 +21,6 @@ class AccessoriesPage(BasePage):
         super().__init__(page)
 
         # -------------------------------
-        # Locate iframe containing Accessories page content
-        # -------------------------------
-        self.frame = page.frame_locator("#framelive")
-
-        # -------------------------------
         # Accessories category header
         # -------------------------------
         self.accessories_div_header = self.frame.locator(AccessoriesPageLocators.ACCESSORIES_DIV_HEADER)

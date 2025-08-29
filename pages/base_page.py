@@ -12,6 +12,11 @@ class BasePage:
     def __init__(self, page: Page):
         self.page = page # Reference to the current Playwright page context
 
+        # -------------------------------
+        # Locate iframe containing sign-in form content
+        # -------------------------------
+        self.frame = page.frame_locator("#framelive")
+
     def visit(self, url: str):
         self.page.goto(url) # Navigate to the specified URL
 

@@ -21,11 +21,6 @@ class ArtPage(BasePage):
         super().__init__(page)
 
         # -------------------------------
-        # Locate iframe containing Art page content
-        # -------------------------------
-        self.frame = page.frame_locator("#framelive")
-
-        # -------------------------------
         # Art category header element
         # -------------------------------
         self.art_div_header = self.frame.locator(ArtPageLocators.ART_DIV_HEADER)

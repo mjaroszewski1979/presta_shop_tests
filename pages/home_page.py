@@ -24,11 +24,6 @@ class HomePage(BasePage):
         super().__init__(page)
 
         # -------------------------------
-        # Locate iframe containing homepage content
-        # -------------------------------
-        self.frame = page.frame_locator("#framelive")
-
-        # -------------------------------
         # Top navigation and header elements
         # -------------------------------
         self.contact_link = self.frame.locator(HomePageLocators.CONTACT_LINK)

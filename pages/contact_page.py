@@ -24,9 +24,6 @@ class ContactPage(BasePage):
         """
         super().__init__(page)
 
-        # Locate iframe containing the Contact Page content
-        self.frame = page.frame_locator("#framelive")
-
         # -------------------------------
         # Contact form elements
         # -------------------------------

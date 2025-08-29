@@ -28,9 +28,6 @@ class CartPage(BasePage):
         """
         super().__init__(page)
 
-        # Locate iframe containing the cart page content
-        self.frame = page.frame_locator("#framelive")
-
         # -------------------------------
         # Cart management elements
         # -------------------------------

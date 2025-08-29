@@ -23,9 +23,6 @@ class CreateAccountPage(BasePage):
         """
         super().__init__(page)
 
-        # Locate iframe containing the Create Account page content
-        self.frame = page.frame_locator("#framelive")
-
         # -------------------------------
         # Form labels
         # -------------------------------
