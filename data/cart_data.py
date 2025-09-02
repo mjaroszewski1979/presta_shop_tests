@@ -1,14 +1,16 @@
 def get_sign_in_form_data(cart_page):
     """
-    Returns a list of tuples mapping each sign-in form element to its expected display text.
-    This is used to validate that all sign-in form labels and links are visible and contain
-    the correct content.
+    Collect locators and expected texts for the sign-in form.
+
+    Returns a list of tuples mapping each sign-in form element to its
+    expected display text. This enables verification that all sign-in
+    labels, inputs, and links are present and contain correct values.
 
     Args:
-        cart_page: An instance of the CartPage with sign-in form locators.
+        cart_page: Instance of CartPage exposing sign-in form locators.
 
     Returns:
-        list[tuple]: A list of (locator, expected_text) pairs for element verification.
+        list[tuple]: A list of (locator, expected_text) pairs for validation.
     """
     return [
         (cart_page.form_email_label, "Email"),
@@ -18,15 +20,17 @@ def get_sign_in_form_data(cart_page):
     ]
 def get_personal_info_form_data(cart_page):
     """
-    Returns a list of tuples mapping each personal information form element to its expected 
-    display text. This is used to validate that all personal information fields, checkboxes, 
-    and action buttons are visible and contain the correct content during the checkout process.
+    Collect locators and expected texts for the personal information form.
+
+    Returns a list of tuples mapping each personal info field, checkbox,
+    and button to its expected display text. Used to validate checkout 
+    registration and account creation process.
 
     Args:
-        cart_page: An instance of the CartPage with personal information form locators.
+        cart_page: Instance of CartPage exposing personal info form locators.
 
     Returns:
-        list[tuple]: A list of (locator, expected_text) pairs for element verification.
+        list[tuple]: A list of (locator, expected_text) pairs for validation.
     """
     return [
         (cart_page.social_title_label, "Social title"),
@@ -45,15 +49,17 @@ def get_personal_info_form_data(cart_page):
 
 def get_address_form_data(cart_page):
     """
-    Returns a list of tuples mapping each personal information form element to its expected 
-    display text. This is used to validate that all personal information fields, checkboxes, 
-    and action buttons are visible and contain the correct content during the checkout process.
+    Collect locators and expected texts for the address form.
+
+    Returns a list of tuples mapping each address-related input field
+    and action button to its expected display text. Ensures correct
+    content during checkout address entry.
 
     Args:
-        cart_page: An instance of the CartPage with personal information form locators.
+        cart_page: Instance of CartPage exposing address form locators.
 
     Returns:
-        list[tuple]: A list of (locator, expected_text) pairs for element verification.
+        list[tuple]: A list of (locator, expected_text) pairs for validation.
     """
     return [
         (cart_page.address_first_name_label, "First name"),
@@ -68,7 +74,19 @@ def get_address_form_data(cart_page):
     ]
 
 def get_delivery_form_data(cart_page):
+    """
+    Collect locators and expected texts for the delivery method form.
 
+    Returns a list of tuples mapping each delivery option, message field,
+    and action button to its expected display text. Used for verifying 
+    shipping method selection during checkout.
+
+    Args:
+        cart_page: Instance of CartPage exposing delivery form locators.
+
+    Returns:
+        list[tuple]: A list of (locator, expected_text) pairs for validation.
+    """
     return [
         (cart_page.click_collect_span, "Click and collect"),
         (cart_page.my_carrier_span, "My carrier"),
@@ -77,7 +95,19 @@ def get_delivery_form_data(cart_page):
     ]
 
 def get_payment_form_data(cart_page):
+    """
+    Collect locators and expected texts for the payment method form.
 
+    Returns a list of tuples mapping each payment option and mandatory
+    terms acceptance checkbox to its expected display text. Ensures that 
+    payment options are properly rendered during checkout.
+
+    Args:
+        cart_page: Instance of CartPage exposing payment form locators.
+
+    Returns:
+        list[tuple]: A list of (locator, expected_text) pairs for validation.
+    """
     return [
         (cart_page.bank_wire_label, "Pay by bank wire"),
         (cart_page.cash_on_delivery_label, "Pay by Cash on Delivery"),
