@@ -9,8 +9,6 @@ from data.first_product_data import get_first_product_data, get_first_product_co
 
 
 
-
-
 def test_first_product_section_is_visible_with_text(home_page, first_product_page):
     """
     UI Test: Verify that the first product page section is visible and displays all expected elements with correct text.
