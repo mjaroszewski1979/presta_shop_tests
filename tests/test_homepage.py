@@ -9,44 +9,84 @@ from data.home_page_data import FOOTER_SECTIONS
 def test_homepage_title(home_page):
     """
     Verify that the homepage title is correct.
+
+    Steps:
+        1. Retrieve current page title.
+        2. Assert that it matches the expected demo site title.
     """
     home_page.assert_title_is("PrestaShop Live Demo")
 
 def test_homepage_url(home_page):
     """
     Verify that the homepage URL is correct.
+
+    Steps:
+        1. Retrieve current page URL.
+        2. Assert that it matches the expected demo site address.
     """
     home_page.assert_url_is("https://demo.prestashop.com/#/en/front")
+
+# -------------------------------
+# Contact link tests
+# -------------------------------
 
 def test_contact_link_is_visible_with_text(home_page):
     """
     Ensure the 'Contact us' link is visible and contains the correct text.
+
+    Steps:
+        1. Locate the 'Contact us' link on the homepage.
+        2. Assert that it is displayed with the exact label "Contact us".
     """
     expect(home_page.contact_link).to_have_text("Contact us")
 
 def test_contact_link_is_working(home_page, contact_page):
     """
     Verify that clicking the 'Contact us' link navigates to the contact page.
+
+    Steps:
+        1. Click the 'Contact us' link on the homepage.
+        2. Assert that the contact page heading is displayed with the text "Contact us".
     """
     home_page.contact_link.click()
     expect(contact_page.contact_form_heading).to_have_text("Contact us")
 
+# -------------------------------
+# Sign in link tests
+# -------------------------------
+
 def test_sign_in_span_is_visible_with_text(home_page):
     """
     Verify that the 'Sign in' span is visible with correct label.
+
+    Steps:
+        1. Locate the 'Sign in' span on the homepage.
+        2. Assert that it is displayed with the exact label "Sign in".
     """
     expect(home_page.sign_in_span).to_have_text("Sign in")
 
 def test_sign_in_link_is_working(home_page, sign_page):
     """
     Ensure the 'Sign in' link navigates to the login page.
+
+    Steps:
+        1. Click the 'Sign in' span on the homepage.
+        2. Assert that the login page is displayed with a "Sign in" button.
     """
     home_page.sign_in_span.click()
     expect(sign_page.sign_in_button).to_have_text("Sign in")
 
+# -------------------------------
+# Cart link tests
+# -------------------------------
+
 def test_cart_span_is_visible_with_text(home_page):
     """
     Verify that the cart span is visible and labeled correctly.
+
+    Steps:
+        1. Locate the cart span on the homepage.
+        2. Assert that it is displayed with the exact label "Cart".
     """
     expect(home_page.cart_span).to_have_text("Cart")
 
@@ -234,10 +274,20 @@ def test_subscribe_with_valid_email_works(home_page):
     home_page.submit_subscribe_form_with_valid_data()
     expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
 
+# -------------------------------
+# Footer section assertions
+# -------------------------------
 
 def assert_footer_section(home_page, section_index, expected_title, expected_items, submenu_locator):
     """
     Utility function to validate footer section title and submenu items.
+
+    Args:
+        home_page: Page object with footer locators.
+        section_index (int): Index of the footer section.
+        expected_title (str): Title of the section to validate.
+        expected_items (list|str): Expected submenu item(s).
+        submenu_locator: Locator for submenu items.
     """
     section_title = home_page.footer_section_title.nth(section_index)
     expect(section_title).to_be_visible()
