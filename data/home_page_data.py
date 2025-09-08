@@ -29,3 +29,5 @@ FOOTER_SECTIONS = {
         "items": "PrestaShop\nFrance\nEmail us: demo@prestashop.com"
     }
 }
+
+HOME_PAGE_URL = "https://demo.prestashop.com/#/en/front"

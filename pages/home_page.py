@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 from locators.home_page_locators import HomePageLocators
 # Import utility functions for generating realistic test data (e.g., user details).
 from utils.home_page_utils import type_text_into_input_field, generate_unique_email
+from data.home_page_data import HOME_PAGE_URL
 
 
 class HomePage(BasePage):
@@ -96,7 +97,7 @@ class HomePage(BasePage):
         Navigate to the homepage URL and wait until essential UI elements are visible,
         ensuring the page is fully loaded before performing interactions.
         """
-        self.visit("https://demo.prestashop.com/#/en/front") 
+        self.visit(HOME_PAGE_URL) 
         self.contact_link.wait_for(state="visible")
         self.my_store_img.wait_for(state="visible")
         self.clothes_link.wait_for(state="visible")
