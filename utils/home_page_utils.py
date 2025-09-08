@@ -2,6 +2,9 @@ from faker import Faker
 import random
 import string
 
+# Import Playwright assertions
+from playwright.sync_api import expect
+
 # Initialize Faker instance for generating fake data
 fake = Faker()
 
@@ -117,4 +120,29 @@ def type_text_into_input_field(locator, text):
     locator.clear()             
     locator.type(text)
 
+def assert_footer_section(home_page, section_index, expected_title, expected_items, submenu_locator):
+    """
+    Utility function to validate footer section title and submenu items.
 
+    Args:
+        home_page: Page object with footer locators.
+        section_index (int): Index of the footer section.
+        expected_title (str): Title of the section to validate.
+        expected_items (list|str): Expected submenu item(s).
+        submenu_locator: Locator for submenu items.
+
+    Steps:
+        1. Locate the footer section by its index.
+        2. Verify that the section title is visible and matches the expected title.
+        3. If multiple submenu items are expected, compare all texts with the expected list.
+        4. If only a single submenu item is expected, validate its text directly.
+    """
+    section_title = home_page.footer_section_title.nth(section_index)
+    expect(section_title).to_be_visible()
+    expect(section_title).to_have_text(expected_title)
+    if isinstance(expected_items, list):
+        actual_items = submenu_locator.all_inner_texts()
+        assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
+    else:
+        actual_item = submenu_locator.inner_text()
+        assert actual_item == expected_items, f"Expected {expected_items}, but got {actual_item}"

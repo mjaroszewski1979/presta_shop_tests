@@ -4,6 +4,7 @@ from playwright.sync_api import expect
 
 # Import test data and helper function
 from data.home_page_data import FOOTER_SECTIONS
+from utils.home_page_utils import assert_footer_section
 
 
 def test_homepage_title(home_page):
@@ -372,68 +373,78 @@ def test_device_width_mobile(home_page):
     home_page.device_li.nth(3).click()
     expect(home_page.body_index).to_have_css("width", "375px")
 
+# -------------------------------
+# Homepage UI element visibility and interactions
+# -------------------------------
+
 def test_start_now_button_is_visible_with_text(home_page):
     """
     Verify the visibility and label of the 'Start now' button.
+
+    Steps:
+        1. Locate the 'Start now' button on the homepage.
+        2. Assert that it is visible and contains the text "Start now".
     """
     expect(home_page.start_now_button).to_contain_text("Start now")
 
 def test_explore_bo_button_is_visible_with_text(home_page):
     """
     Verify the visibility and label of the 'Explore back office' button.
+
+    Steps:
+        1. Locate the 'Explore back office' button on the homepage.
+        2. Assert that it is visible and contains the text "Explore back office".
     """
     expect(home_page.explore_bo_button).to_contain_text("Explore back office")
 
 def test_hide_header_span(home_page):
     """
     Confirm that clicking 'hide header' hides the header section.
+
+    Steps:
+        1. Assert that the header section is initially visible.
+        2. Click on the 'hide header' control.
+        3. Assert that the header section is no longer visible.
     """
-    expect(home_page.header_div).to_be_visible(timeout=5000)
+    expect(home_page.header_div).to_be_visible()
     home_page.hide_header_span.click()
     expect(home_page.header_div).not_to_be_visible()
 
 def test_banner_image_is_visible(home_page):
     """
     Confirm that the main banner image is visible.
+
+    Steps:
+        1. Locate the main banner image element.
+        2. Assert that it is displayed on the homepage.
     """
     expect(home_page.banner_image).to_be_visible()
 
 def test_subscribe_with_valid_email_works(home_page):
     """
     Test newsletter subscription flow with a generated valid email.
+
+    Steps:
+        1. Fill the newsletter subscription form with a generated valid email address.
+        2. Submit the form.
+        3. Assert that a success message is displayed confirming subscription.
     """
     home_page.submit_subscribe_form_with_valid_data()
     expect(home_page.subscribe_info_para).to_contain_text("You have successfully subscribed to this newsletter.")
 
 # -------------------------------
-# Footer section assertions
+# Footer section tests
 # -------------------------------
-
-def assert_footer_section(home_page, section_index, expected_title, expected_items, submenu_locator):
-    """
-    Utility function to validate footer section title and submenu items.
-
-    Args:
-        home_page: Page object with footer locators.
-        section_index (int): Index of the footer section.
-        expected_title (str): Title of the section to validate.
-        expected_items (list|str): Expected submenu item(s).
-        submenu_locator: Locator for submenu items.
-    """
-    section_title = home_page.footer_section_title.nth(section_index)
-    expect(section_title).to_be_visible()
-    expect(section_title).to_have_text(expected_title)
-    if isinstance(expected_items, list):
-        actual_items = submenu_locator.all_inner_texts()
-        assert actual_items == expected_items, f"Expected {expected_items}, but got {actual_items}"
-    else:
-        actual_item = submenu_locator.inner_text()
-        assert actual_item == expected_items, f"Expected {expected_items}, but got {actual_item}"
 
 
 def test_footer_products_section(home_page):
     """
     Validate the 'Products' section in the page footer.
+
+    Steps:
+        1. Retrieve expected configuration for 'Products' section.
+        2. Call the common footer assertion utility with section index, title, and submenu items.
+        3. Confirm that the section title and submenu items match expectations.
     """
     section = FOOTER_SECTIONS["products"]
     assert_footer_section(
@@ -448,6 +459,11 @@ def test_footer_products_section(home_page):
 def test_footer_our_company_section(home_page):
     """
     Validate the 'Our Company' section in the page footer.
+
+    Steps:
+        1. Retrieve expected configuration for 'Our Company' section.
+        2. Call the common footer assertion utility with section index, title, and submenu items.
+        3. Confirm that the section title and submenu items match expectations.
     """
     section = FOOTER_SECTIONS["our_company"]
     assert_footer_section(
@@ -462,6 +478,11 @@ def test_footer_our_company_section(home_page):
 def test_footer_your_account_section(home_page):
     """
     Validate the 'Your Account' section in the page footer.
+
+    Steps:
+        1. Retrieve expected configuration for 'Your Account' section.
+        2. Call the common footer assertion utility with section index, title, and submenu items.
+        3. Confirm that the section title and submenu items match expectations.
     """
     section = FOOTER_SECTIONS["your_account"]
     assert_footer_section(
@@ -476,6 +497,11 @@ def test_footer_your_account_section(home_page):
 def test_footer_store_info_section(home_page):
     """
     Validate the 'Store Information' section in the page footer.
+
+    Steps:
+        1. Retrieve expected configuration for 'Store Information' section.
+        2. Call the common footer assertion utility with section index, title, and submenu items.
+        3. Confirm that the section title and submenu items match expectations.
     """
     section = FOOTER_SECTIONS["store_info"]
     assert_footer_section(
