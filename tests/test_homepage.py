@@ -152,15 +152,27 @@ def test_clothes_women_link_is_visible_with_text(home_page):
     home_page.clothes_link.hover()
     expect(home_page.clothes_women_link).to_contain_text("Women")
 
+# -------------------------------
+# Accessories category link tests
+# -------------------------------
+
 def test_accessories_link_is_visible_with_text(home_page):
     """
     Ensure 'Accessories' category is displayed and correctly labeled.
+
+    Steps:
+        1. Locate the 'Accessories' category link in the main navigation.
+        2. Assert that it is displayed with the text "Accessories".
     """
     expect(home_page.accessories_link).to_contain_text("Accessories")
 
 def test_accessories_link_is_working(home_page, accessories_page):
     """
     Check that the 'Accessories' link navigates to the appropriate category page.
+
+    Steps:
+        1. Click on the 'Accessories' category link in the main navigation.
+        2. Assert that the Accessories page header is displayed with the text "Accessories".
     """
     home_page.accessories_link.click()
     expect(accessories_page.accessories_div_header).to_contain_text("Accessories")
@@ -168,6 +180,10 @@ def test_accessories_link_is_working(home_page, accessories_page):
 def test_accessories_stationery_link_is_visible_with_text(home_page):
     """
     Verify that 'Stationery' submenu under Accessories is visible.
+
+    Steps:
+        1. Hover over the 'Accessories' category link in the main navigation.
+        2. Assert that the 'Stationery' submenu link is displayed with the text "Stationery".
     """
     home_page.accessories_link.hover()
     expect(home_page.accessories_stationery_link).to_contain_text("Stationery")
@@ -175,6 +191,10 @@ def test_accessories_stationery_link_is_visible_with_text(home_page):
 def test_accessories_home_link_is_visible_with_text(home_page):
     """
     Verify that 'Home Accessories' submenu under Accessories is visible.
+
+    Steps:
+        1. Hover over the 'Accessories' category link in the main navigation.
+        2. Assert that the 'Home Accessories' submenu link is displayed with the text "Home Accessories".
     """
     home_page.accessories_link.hover()
     expect(home_page.accessories_home_link).to_contain_text("Home Accessories")
