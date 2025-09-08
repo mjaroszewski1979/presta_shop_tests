@@ -90,21 +90,42 @@ def test_cart_span_is_visible_with_text(home_page):
     """
     expect(home_page.cart_span).to_have_text("Cart")
 
+# -------------------------------
+# Store logo tests
+# ------------------------------- 
+
 def test_my_store_img_is_visible(home_page):
     """
     Confirm that the store logo image is displayed on the homepage.
+
+    Steps:
+        1. Locate the store logo image element on the homepage.
+        2. Assert that the image is visible in the DOM.
     """
     expect(home_page.my_store_img).to_be_visible()
+
+# -------------------------------
+# Clothes category link tests
+# -------------------------------
+
 
 def test_clothes_link_is_visible_with_text(home_page):
     """
     Check that the 'Clothes' category link is visible and labeled correctly.
+
+    Steps:
+        1. Locate the 'Clothes' category link in the main navigation.
+        2. Assert that it is displayed with the text "Clothes".
     """
     expect(home_page.clothes_link).to_contain_text("Clothes")
 
 def test_clothes_link_is_working(home_page, clothes_page):
     """
     Verify that clicking the 'Clothes' link navigates to the correct page.
+
+    Steps:
+        1. Click on the 'Clothes' category link in the main navigation.
+        2. Assert that the Clothes page header is displayed with the text "Clothes".
     """
     home_page.clothes_link.click()
     expect(clothes_page.clothes_div_header).to_contain_text("Clothes")
@@ -112,6 +133,10 @@ def test_clothes_link_is_working(home_page, clothes_page):
 def test_clothes_men_link_is_visible_with_text(home_page):
     """
     Verify that the 'Men' subcategory under 'Clothes' is visible and labeled correctly.
+
+    Steps:
+        1. Hover over the 'Clothes' category link in the main navigation.
+        2. Assert that the 'Men' subcategory link is displayed with the text "Men".
     """
     home_page.clothes_link.hover()
     expect(home_page.clothes_men_link).to_contain_text("Men")
@@ -119,6 +144,10 @@ def test_clothes_men_link_is_visible_with_text(home_page):
 def test_clothes_women_link_is_visible_with_text(home_page):
     """
     Verify that the 'Women' subcategory under 'Clothes' is visible and labeled correctly.
+
+    Steps:
+        1. Hover over the 'Clothes' category link in the main navigation.
+        2. Assert that the 'Women' subcategory link is displayed with the text "Women".
     """
     home_page.clothes_link.hover()
     expect(home_page.clothes_women_link).to_contain_text("Women")
