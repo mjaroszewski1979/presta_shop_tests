@@ -199,35 +199,67 @@ def test_accessories_home_link_is_visible_with_text(home_page):
     home_page.accessories_link.hover()
     expect(home_page.accessories_home_link).to_contain_text("Home Accessories")
 
+# -------------------------------
+# Art category link tests
+# -------------------------------
+
 def test_art_link_is_visible_with_text(home_page):
     """
     Ensure 'Art' category link is visible.
+
+    Steps:
+        1. Locate the 'Art' category link in the main navigation.
+        2. Assert that it is displayed with the text "Art".
     """
     expect(home_page.art_link).to_contain_text("Art")
 
 def test_art_link_is_working(home_page, art_page):
     """
     Verify that clicking the 'Art' link loads the correct content.
+
+    Steps:
+        1. Click on the 'Art' category link in the main navigation.
+        2. Assert that the Art page header is displayed with the text "Art".
     """
     home_page.art_link.click()
     expect(art_page.art_div_header).to_contain_text("Art")
 
+# -------------------------------
+# First product link tests
+# -------------------------------
+
 def test_first_product_link_is_working(home_page, first_product_page):
     """
     Verify that clicking the 'First Product' link loads the correct content.
+
+    Steps:
+        1. Locate and click on the first product link on the homepage.
+        2. Assert that the product details page is displayed with the header "Hummingbird printed t-shirt".
     """
     home_page.first_product_link.first.click()
     expect(first_product_page.content_div_header).to_contain_text("Hummingbird printed t-shirt")
 
+# -------------------------------
+# Featured and sale products tests
+# -------------------------------
+
 def test_homepage_displays_8_featured_products(home_page):
     """
     Ensure exactly 8 featured products are displayed on the homepage.
+
+    Steps:
+        1. Locate the featured products section on the homepage.
+        2. Assert that it contains exactly 8 product elements.
     """
     expect(home_page.featured_products).to_have_count(8)
 
 def test_homepage_displays_2_sale_products(home_page):
     """
     Ensure exactly 2 sale products are displayed on the homepage.
+
+    Steps:
+        1. Scroll to the sale products section on the homepage.
+        2. Assert that it contains exactly 2 product elements.
     """
     home_page.sale_products.first.scroll_into_view_if_needed()
     expect(home_page.sale_products).to_have_count(2)
