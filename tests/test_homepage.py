@@ -264,9 +264,17 @@ def test_homepage_displays_2_sale_products(home_page):
     home_page.sale_products.first.scroll_into_view_if_needed()
     expect(home_page.sale_products).to_have_count(2)
 
+# -------------------------------
+# Carousel functionality tests
+# -------------------------------
+
 def test_carousel_initial_slide_text(home_page):
     """
     Validate the text of the first carousel slide.
+
+    Steps:
+        1. Locate the heading of the first carousel slide.
+        2. Assert that it contains the text "Sample 1".
     """
     first_heading = home_page.carousel_headings.nth(0)
     expect(first_heading).to_have_text("Sample 1")
@@ -274,21 +282,43 @@ def test_carousel_initial_slide_text(home_page):
 def test_carousel_second_slide_text(home_page):
     """
     Validate the text of the second carousel slide after navigation.
+
+    Steps:
+        1. Click the 'next' icon to navigate to the second carousel slide.
+        2. Locate the heading of the second carousel slide.
+        3. Assert that it contains the text "Sample 2".
     """
     home_page.carousel_next_icon.click()
     second_heading = home_page.carousel_headings.nth(1)
     expect(second_heading).to_have_text("Sample 2")
 
+# -------------------------------
+# Search functionality tests
+# -------------------------------
+
 def test_search_catalog_form_is_working_with_valid_data(home_page, search_page):
     """
     Test the search functionality with the keyword 'Hummingbird'.
+
+    Steps:
+        1. Submit the search form using a predefined valid keyword ('Hummingbird').
+        2. Assert that the search results page displays the total count as "There are 5 products.".
     """
     home_page.submit_search_catalog_form_with_valid_data()
     expect(search_page.total_products_para).to_contain_text('There are 5 products.')
 
+# -------------------------------
+# Language selector tests
+# -------------------------------
+
 def test_language_select(home_page):
     """
     Verify that switching language to Spanish updates the UI correctly.
+
+    Steps:
+        1. Open the language dropdown menu on the homepage.
+        2. Select the Spanish language option.
+        3. Assert that the featured products heading updates to "Productos Destacados".
     """
     home_page.language_dropdown_button.click()
     home_page.language_option_spanish.click()
