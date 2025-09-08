@@ -324,9 +324,17 @@ def test_language_select(home_page):
     home_page.language_option_spanish.click()
     expect(home_page.featured_products_h2.first).to_contain_text('Productos Destacados')
 
+# -------------------------------
+# Device viewport width tests
+# -------------------------------
+
 def test_device_width_desktop(home_page):
     """
     Validate desktop view width.
+
+    Steps:
+        1. Select the first device option representing desktop view.
+        2. Assert that the body element width is set to "1280px".
     """
     home_page.device_li.first.click()
     expect(home_page.body_index).to_have_css("width", "1280px")
@@ -334,6 +342,10 @@ def test_device_width_desktop(home_page):
 def test_device_width_tablet_h(home_page):
     """
     Validate horizontal tablet view width.
+
+    Steps:
+        1. Select the second device option representing horizontal tablet view.
+        2. Assert that the body element width is set to "1024px".
     """
     home_page.device_li.nth(1).click()
     expect(home_page.body_index).to_have_css("width", "1024px")
@@ -341,6 +353,10 @@ def test_device_width_tablet_h(home_page):
 def test_device_width_tablet_v(home_page):
     """
     Validate vertical tablet view width.
+
+    Steps:
+        1. Select the third device option representing vertical tablet view.
+        2. Assert that the body element width is set to "768px".
     """
     home_page.device_li.nth(2).click()
     expect(home_page.body_index).to_have_css("width", "768px")
@@ -348,6 +364,10 @@ def test_device_width_tablet_v(home_page):
 def test_device_width_mobile(home_page):
     """
     Validate mobile view width.
+
+    Steps:
+        1. Select the fourth device option representing mobile view.
+        2. Assert that the body element width is set to "375px".
     """
     home_page.device_li.nth(3).click()
     expect(home_page.body_index).to_have_css("width", "375px")
